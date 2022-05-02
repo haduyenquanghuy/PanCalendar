@@ -21,6 +21,7 @@
 		BF0748AA281F3B4300FCBA22 /* PHexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748A9281F3B4300FCBA22 /* PHexColor.swift */; };
 		BF0748AF281F3E6B00FCBA22 /* CalendarFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748AD281F3E6B00FCBA22 /* CalendarFooterReusableView.swift */; };
 		BF0748B0281F3E6B00FCBA22 /* CalendarFooterReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0748AE281F3E6B00FCBA22 /* CalendarFooterReusableView.xib */; };
+		BF0748B3281F61C600FCBA22 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748B2281F61C600FCBA22 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		BF0748A9281F3B4300FCBA22 /* PHexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHexColor.swift; sourceTree = "<group>"; };
 		BF0748AD281F3E6B00FCBA22 /* CalendarFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFooterReusableView.swift; sourceTree = "<group>"; };
 		BF0748AE281F3E6B00FCBA22 /* CalendarFooterReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarFooterReusableView.xib; sourceTree = "<group>"; };
+		BF0748B2281F61C600FCBA22 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		BF074879281D341000FCBA22 /* PanCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				BF0748B1281F619700FCBA22 /* Common */,
 				BF07487A281D341000FCBA22 /* AppDelegate.swift */,
 				BF07487C281D341000FCBA22 /* SceneDelegate.swift */,
 				BF0748A7281F3B0400FCBA22 /* Extension */,
@@ -155,6 +158,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		BF0748B1281F619700FCBA22 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BF0748B2281F61C600FCBA22 /* Common.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,6 +247,7 @@
 				BF07489A281DE40B00FCBA22 /* DateTimeModel.swift in Sources */,
 				BF07487B281D341000FCBA22 /* AppDelegate.swift in Sources */,
 				BF07489C281DE56400FCBA22 /* DateTimeManager.swift in Sources */,
+				BF0748B3281F61C600FCBA22 /* Common.swift in Sources */,
 				BF07487D281D341000FCBA22 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,11 +7,40 @@
 
 import UIKit
 
-class CalendarCollectionViewCell: UICollectionViewCell {
+enum PCellType {
+    case weekday
+    case date
+    case disabled
+    case chosen
+    case today
+}
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+class CalendarCollectionViewCell: UICollectionViewCell {
+    
+    var type : PCellType = .date {
+        didSet {
+            contentView.backgroundColor = .white
+            contentLabel.font = UIFont(name: "Gill Sans", size: 18.0)
+            contentLabel.textColor = UIColor(rgb: 0x39393A)
+            switch type {
+            case .weekday:
+                contentLabel.font = UIFont(name: "Gill Sans-Light", size: 18.0)
+                contentLabel.textColor = UIColor(rgb: 0x8C8F93)
+            case .date:
+                break
+            case .disabled:
+                isUserInteractionEnabled = false
+                contentLabel.alpha = 0.25
+            case .chosen, .today:
+                contentView.layer.cornerRadius = frame.width / 2
+                contentLabel.textColor = .white
+                if type == .chosen {
+                    contentView.backgroundColor = UIColor(rgb: 0xFF8552)
+                } else {
+                    contentView.backgroundColor = UIColor(rgb: 0x205375)
+                }
+            }
+        }
     }
     
     @IBOutlet weak var contentLabel: UILabel!
@@ -19,7 +48,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     static let identifier = "CalendarCollectionViewCell"
     
     public func configure(with text: String) {
-        self.contentLabel.text = text
+        contentLabel.text = text
     }
     
     static func nib() -> UINib {

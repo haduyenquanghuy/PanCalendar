@@ -18,6 +18,7 @@ class CalendarViewController: UIViewController {
     
     var dates = [DateTimeModel]()
     var weekdays = [String]()
+    var chosenItem: IndexPath?
     
     @IBOutlet weak var calendarView: UICollectionView!
     
@@ -25,7 +26,6 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         calendarView.register(CalendarCollectionViewCell.nib(), forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
         calendarView.register(CalendarFooterReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CalendarFooterReusableView.identifier)
         dates = dateTimeManager.dates
@@ -37,7 +37,13 @@ extension CalendarViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == SectionType.dateSection.rawValue {
-            print(indexPath.row)
+            if let chosenItem = chosenItem {
+                let lastChosenCell = calendarView.cellForItem(at: chosenItem) as! CalendarCollectionViewCell
+                lastChosenCell.type = dates[chosenItem.row].isToday ? .today : .date
+            }
+            chosenItem = indexPath
+            let chosenCell = calendarView.cellForItem(at: indexPath) as? CalendarCollectionViewCell
+            chosenCell?.type = .chosen
         }
     }
     
@@ -49,7 +55,6 @@ extension CalendarViewController: UICollectionViewDelegate {
 
 extension CalendarViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if section == SectionType.dateSection.rawValue {
             return dates.count
         }
@@ -62,11 +67,13 @@ extension CalendarViewController: UICollectionViewDataSource {
             let currentDateModel = dates[indexPath.row]
             cell.configure(with: String(currentDateModel.shortDateLabel))
             if !dateTimeManager.isSameMonth(with: currentDateModel) {
-                cell.contentLabel.alpha = 0.25
-                cell.isUserInteractionEnabled = false
+                cell.type = .disabled
+            } else if currentDateModel.isToday {
+                cell.type = .today
             }
         } else {
             cell.contentLabel.text = weekdays[indexPath.row]
+            cell.type = .weekday
         }
         return cell
     }
