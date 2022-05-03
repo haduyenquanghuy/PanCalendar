@@ -25,4 +25,11 @@ struct DateTimeModel {
     var isToday: Bool {
         return Calendar.current.isDateInToday(currentDate)
     }
+    
+    func isSame(_ date: Date?) -> Bool {
+        if let date = date {
+            return Calendar.current.isDate(currentDate, inSameDayAs: date)
+        }
+        return false
+    }
 }

@@ -19,9 +19,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     
     var type : PCellType = .date {
         didSet {
-            contentView.backgroundColor = .white
-            contentLabel.font = UIFont(name: "Gill Sans", size: 18.0)
-            contentLabel.textColor = UIColor(rgb: 0x39393A)
+            refreshUI()
             switch type {
             case .weekday:
                 contentLabel.font = UIFont(name: "Gill Sans-Light", size: 18.0)
@@ -41,6 +39,15 @@ class CalendarCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
+    }
+    
+    func refreshUI() {
+        contentView.layer.cornerRadius = 0
+        contentView.backgroundColor = .white
+        isUserInteractionEnabled = true
+        contentLabel.font = UIFont(name: "Gill Sans", size: 18.0)
+        contentLabel.textColor = UIColor(rgb: 0x39393A)
+        contentLabel.alpha = 1.0
     }
     
     @IBOutlet weak var contentLabel: UILabel!

@@ -19,6 +19,11 @@ class CalendarViewController: UIViewController {
     var dates = [DateTimeModel]()
     var weekdays = [String]()
     var chosenItem: IndexPath?
+    var chosenDate: Date?
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var datePickerView: UIView!
     
     @IBOutlet weak var calendarView: UICollectionView!
     
@@ -33,28 +38,80 @@ class CalendarViewController: UIViewController {
         dates = dateTimeManager.dates
         monthLabel.text = dateTimeManager.currentMonthText
         weekdays = Calendar(identifier: .iso8601).weekdaySymbols.map { $0.uppercased() }
-    }
-    
-    @IBAction func nextMonth(_ sender: UIButton) {
-        dateTimeManager = dateTimeManager.getNextMonth()
-        reloadData()
-    }
-    
-    @IBAction func previousMonth(_ sender: UIButton) {
-        dateTimeManager = dateTimeManager.getPreviousMonth()
-        reloadData()
-    }
-    @IBAction func today(_ sender: UIButton) {
-        dateTimeManager = DateTimeManager(currentDate: Date())
-        reloadData()
+        
+        calendarView.addGestureRecognizer(createSwipeGestureRecognizer(for: .left))
+        calendarView.addGestureRecognizer(createSwipeGestureRecognizer(for: .right))
+        
     }
     
     func reloadData() {
         dates = dateTimeManager.dates
-        calendarView.reloadData()
+        calendarView.reloadSections(IndexSet(integer: SectionType.dateSection.rawValue))
         monthLabel.text = dateTimeManager.currentMonthText
     }
+    
+    
+    private func createSwipeGestureRecognizer(for direction: UISwipeGestureRecognizer.Direction) -> UISwipeGestureRecognizer {
+        
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(_:)))
+        swipeGestureRecognizer.direction = direction
+        
+        return swipeGestureRecognizer
+    }
+    
+    //MARK: - Action Handler
+    @IBAction func pressSearch(_ sender: UIButton) {
+        showDatePickerView(hidden: false)
+    }
+    
+    @IBAction func pressCancelDatePicker(_ sender: UIBarButtonItem) {
+        showDatePickerView(hidden: true)
+    }
+    
+    @IBAction func pressDoneDatePicker(_ sender: UIBarButtonItem) {
+        let pickedDate = datePicker.date
+        dateTimeManager = DateTimeManager(currentDate: pickedDate)
+        chosenDate = pickedDate
+        chosenItem = nil
+        reloadData()
+        showDatePickerView(hidden: true)
+    }
+    
+    func showDatePickerView(hidden: Bool) {
+        UIView.transition(with: datePickerView, duration: 0.25,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            self.datePickerView.isHidden = hidden
+        })
+        if hidden {
+            datePicker.date = Date()
+        }
+    }
+    
+    @objc private func didSwipe(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .right {
+            dateTimeManager = dateTimeManager.getPreviousMonth()
+        } else {
+            dateTimeManager = dateTimeManager.getNextMonth()
+        }
+        setVarToDefaultWhenChangeMonthCalendar()
+        reloadData()
+    }
+    
+    @IBAction func today(_ sender: UIButton) {
+        dateTimeManager = DateTimeManager(currentDate: Date())
+        setVarToDefaultWhenChangeMonthCalendar()
+        reloadData()
+        showDatePickerView(hidden: true)
+    }
+    
+    func setVarToDefaultWhenChangeMonthCalendar() {
+        chosenItem = nil
+        chosenDate = nil
+    }
 }
+
+//MARK: - UICollectionViewDelegate
 
 extension CalendarViewController: UICollectionViewDelegate {
     
@@ -76,6 +133,8 @@ extension CalendarViewController: UICollectionViewDelegate {
     
 }
 
+//MARK: - UICollectionViewDataSource
+
 extension CalendarViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == SectionType.dateSection.rawValue {
@@ -93,6 +152,11 @@ extension CalendarViewController: UICollectionViewDataSource {
                 cell.type = .disabled
             } else if currentDateModel.isToday {
                 cell.type = .today
+            } else if currentDateModel.isSame(chosenDate) {
+                cell.type = .chosen
+                chosenItem = indexPath
+            } else {
+                cell.type = .date
             }
         } else {
             cell.contentLabel.text = weekdays[indexPath.row]
@@ -101,6 +165,8 @@ extension CalendarViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+//MARK: - UICollectionViewDelegateFlowLayout
 
 extension CalendarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
