@@ -22,14 +22,37 @@ class CalendarViewController: UIViewController {
     
     @IBOutlet weak var calendarView: UICollectionView!
     
-    let dateTimeManager = DateTimeManager(currentDate: Date.now)
+    @IBOutlet weak var monthLabel: UILabel!
+    
+    var dateTimeManager = DateTimeManager(currentDate: Date())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarView.register(CalendarCollectionViewCell.nib(), forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
         calendarView.register(CalendarFooterReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CalendarFooterReusableView.identifier)
         dates = dateTimeManager.dates
+        monthLabel.text = dateTimeManager.currentMonthText
         weekdays = Calendar(identifier: .iso8601).weekdaySymbols.map { $0.uppercased() }
+    }
+    
+    @IBAction func nextMonth(_ sender: UIButton) {
+        dateTimeManager = dateTimeManager.getNextMonth()
+        reloadData()
+    }
+    
+    @IBAction func previousMonth(_ sender: UIButton) {
+        dateTimeManager = dateTimeManager.getPreviousMonth()
+        reloadData()
+    }
+    @IBAction func today(_ sender: UIButton) {
+        dateTimeManager = DateTimeManager(currentDate: Date())
+        reloadData()
+    }
+    
+    func reloadData() {
+        dates = dateTimeManager.dates
+        calendarView.reloadData()
+        monthLabel.text = dateTimeManager.currentMonthText
     }
 }
 
@@ -111,6 +134,6 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
         if section == SectionType.dateSection.rawValue {
             return CGSize(width: calendarView.frame.width, height: 24)
         }
-        return CGSize(width: view.frame.width, height: 1)
+        return CGSize(width: calendarView.frame.width, height: 1)
     }
 }

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8oI-bH-Gj3">
-                                <rect key="frame" x="5" y="44" width="404" height="818"/>
+                                <rect key="frame" x="5" y="115.5" width="404" height="746.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dJL-Sc-Ode">
                                     <size key="itemSize" width="128" height="128"/>
@@ -46,18 +46,78 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="seT-F5-ycs"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ql-TT-v7g" userLabel="CalendarHeader">
+                                <rect key="frame" x="5" y="44" width="414" height="71.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="fOr-l0-CHR">
+                                        <rect key="frame" x="8" y="0.0" width="398" height="71.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DW0-Uc-K4G">
+                                                <rect key="frame" x="0.0" y="0.0" width="74" height="71.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1Z-lb-jVH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="37" height="71.5"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="previousMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lUl-kL-q75"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVX-iv-KuZ">
+                                                        <rect key="frame" x="37" y="0.0" width="37" height="71.5"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="nextMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CzQ-MG-bMn"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avN-SO-IeI">
+                                                <rect key="frame" x="158.5" y="0.0" width="94.5" height="71.5"/>
+                                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
+                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kT1-hn-o0c">
+                                                <rect key="frame" x="351" y="0.0" width="47" height="71.5"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="calendar" catalog="system"/>
+                                                <connections>
+                                                    <action selector="today:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8dC-Gg-3wp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fOr-l0-CHR" secondAttribute="bottom" id="Iot-Yg-v0L"/>
+                                    <constraint firstItem="fOr-l0-CHR" firstAttribute="leading" secondItem="8ql-TT-v7g" secondAttribute="leading" constant="8" id="Y7T-nv-tR1"/>
+                                    <constraint firstItem="fOr-l0-CHR" firstAttribute="top" secondItem="8ql-TT-v7g" secondAttribute="top" id="jp1-Jb-iVp"/>
+                                    <constraint firstAttribute="trailing" secondItem="fOr-l0-CHR" secondAttribute="trailing" constant="8" id="y2x-OT-AvJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8oI-bH-Gj3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="T7c-bp-TeT"/>
-                            <constraint firstItem="8oI-bH-Gj3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="W54-gk-rEF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8oI-bH-Gj3" secondAttribute="trailing" constant="5" id="hgc-aa-9XR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8oI-bH-Gj3" secondAttribute="bottom" id="wsD-fi-oQr"/>
+                            <constraint firstItem="8ql-TT-v7g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="QeS-TN-bVs"/>
+                            <constraint firstItem="8oI-bH-Gj3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Tq6-P2-WuZ"/>
+                            <constraint firstItem="8ql-TT-v7g" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="5" id="YSY-BD-eHo"/>
+                            <constraint firstItem="8oI-bH-Gj3" firstAttribute="top" secondItem="8ql-TT-v7g" secondAttribute="bottom" id="dzf-xk-9Ez"/>
+                            <constraint firstItem="8ql-TT-v7g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="hTI-mj-9Lu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8oI-bH-Gj3" secondAttribute="trailing" constant="5" id="jrl-O8-hCr"/>
+                            <constraint firstItem="8oI-bH-Gj3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="nNH-Iy-1Jd"/>
+                            <constraint firstItem="8ql-TT-v7g" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.08" id="wHN-Mg-zBy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="calendarView" destination="8oI-bH-Gj3" id="UZt-Yj-QpA"/>
+                        <outlet property="monthLabel" destination="avN-SO-IeI" id="pSr-yW-mKX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -66,6 +126,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

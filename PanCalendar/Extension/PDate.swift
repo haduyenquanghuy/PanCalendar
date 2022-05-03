@@ -15,4 +15,12 @@ extension Date {
     func endOfMonth() -> Date {
         return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
     }
+    
+    func nextMonth() -> Date {
+        return Calendar.current.date(byAdding: .month, value: 1, to: self)!
+    }
+    
+    func previousMonth() -> Date {
+        return Calendar.current.date(byAdding: .month, value: -1, to: self)!
+    }
 }

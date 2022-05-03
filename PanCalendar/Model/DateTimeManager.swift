@@ -13,6 +13,13 @@ struct DateTimeManager {
     
     let calendar = NSCalendar.current
     
+    var currentMonthText: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "MMMM yyyy"
+        return dateFormatter.string(from: currentDate)
+    }
+    
     var dates: [DateTimeModel] {
         let startOfMonth = currentDate.startOfMonth()
         let endOfMonth = currentDate.endOfMonth()
@@ -66,5 +73,13 @@ struct DateTimeManager {
     
     func isSameMonth(with date: DateTimeModel) -> Bool{
         return calendar.isDate(date.currentDate, equalTo: currentDate, toGranularity: .month)
+    }
+    
+    func getNextMonth() -> DateTimeManager {
+        return DateTimeManager(currentDate: currentDate.nextMonth())
+    }
+    
+    func getPreviousMonth() -> DateTimeManager {
+        return DateTimeManager(currentDate: currentDate.previousMonth())
     }
 }
