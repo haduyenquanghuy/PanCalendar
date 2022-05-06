@@ -21,6 +21,8 @@ class CalendarViewController: UIViewController {
     var chosenItem: IndexPath?
     var chosenDate: Date?
     
+    @IBOutlet weak var calendarViewHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var datePickerView: UIView!
@@ -28,6 +30,8 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: UICollectionView!
     
     @IBOutlet weak var monthLabel: UILabel!
+    
+    @IBOutlet weak var eventTableView: UITableView!
     
     var dateTimeManager = DateTimeManager(currentDate: Date())
     
@@ -41,15 +45,25 @@ class CalendarViewController: UIViewController {
         
         calendarView.addGestureRecognizer(createSwipeGestureRecognizer(for: .left))
         calendarView.addGestureRecognizer(createSwipeGestureRecognizer(for: .right))
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        resetHeightCalendar()
     }
     
     func reloadData() {
         dates = dateTimeManager.dates
         calendarView.reloadSections(IndexSet(integer: SectionType.dateSection.rawValue))
         monthLabel.text = dateTimeManager.currentMonthText
+        resetHeightCalendar()
     }
     
+    func resetHeightCalendar() {
+        let height = calendarView.collectionViewLayout.collectionViewContentSize.height
+        calendarViewHeight.constant = height
+        self.view.setNeedsLayout()
+    }
     
     private func createSwipeGestureRecognizer(for direction: UISwipeGestureRecognizer.Direction) -> UISwipeGestureRecognizer {
         
@@ -202,4 +216,20 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
         }
         return CGSize(width: calendarView.frame.width, height: 1)
     }
+}
+
+extension CalendarViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath)
+        
+        // For a standard cell, use the UITableViewCell properties.
+        cell.textLabel!.text = "Title text"
+        return cell
+    }
+    
 }

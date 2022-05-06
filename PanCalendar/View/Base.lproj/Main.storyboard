@@ -17,35 +17,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8oI-bH-Gj3">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-dA-IiA">
                                 <rect key="frame" x="5" y="115.5" width="404" height="746.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dJL-Sc-Ode">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="50" height="1"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarViewCell" id="AAX-Hf-vaL">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LCo-d8-oHO">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8oI-bH-Gj3">
+                                        <rect key="frame" x="0.0" y="0.0" width="404" height="200"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="999" constant="200" id="IQw-pb-a4t"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dJL-Sc-Ode">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="50" height="1"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarViewCell" id="AAX-Hf-vaL">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LCo-d8-oHO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CalendarFooterReusableView" id="GjX-uK-uUA" customClass="CalendarFooterReusableView" customModule="PanCalendar" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="128" width="404" height="1"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CalendarFooterReusableView" id="GjX-uK-uUA" customClass="CalendarFooterReusableView" customModule="PanCalendar" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="128" width="404" height="1"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </collectionReusableView>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Z1z-05-aWI"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="seT-F5-ycs"/>
-                                </connections>
-                            </collectionView>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </collectionReusableView>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="Z1z-05-aWI"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="seT-F5-ycs"/>
+                                        </connections>
+                                    </collectionView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="I99-cs-WTY">
+                                        <rect key="frame" x="0.0" y="200" width="404" height="546.5"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventTableViewCell" textLabel="Vn4-a8-1kD" style="IBUITableViewCellStyleDefault" id="qdV-3E-nip">
+                                                <rect key="frame" x="0.0" y="44.5" width="404" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qdV-3E-nip" id="1MN-lk-Xfv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="404" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vn4-a8-1kD">
+                                                            <rect key="frame" x="20" y="0.0" width="364" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="KTw-3t-2SR"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="kQk-ST-VPt"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ql-TT-v7g" userLabel="CalendarHeader">
                                 <rect key="frame" x="5" y="44" width="414" height="71.5"/>
                                 <subviews>
@@ -134,21 +168,23 @@
                             <constraint firstItem="a4C-fa-4E8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="Dhs-yf-ah1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a4C-fa-4E8" secondAttribute="bottom" id="Jsz-lD-fip"/>
                             <constraint firstItem="8ql-TT-v7g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="QeS-TN-bVs"/>
-                            <constraint firstItem="8oI-bH-Gj3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Tq6-P2-WuZ"/>
+                            <constraint firstItem="nJ8-dA-IiA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="Qev-VI-Ha6"/>
                             <constraint firstItem="8ql-TT-v7g" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="5" id="YSY-BD-eHo"/>
                             <constraint firstItem="a4C-fa-4E8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dKL-Gx-VkS"/>
-                            <constraint firstItem="8oI-bH-Gj3" firstAttribute="top" secondItem="8ql-TT-v7g" secondAttribute="bottom" id="dzf-xk-9Ez"/>
+                            <constraint firstItem="nJ8-dA-IiA" firstAttribute="top" secondItem="8ql-TT-v7g" secondAttribute="bottom" id="doI-sV-Sq2"/>
+                            <constraint firstAttribute="trailing" secondItem="nJ8-dA-IiA" secondAttribute="trailing" constant="5" id="gi9-VD-uzc"/>
                             <constraint firstItem="8ql-TT-v7g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="hTI-mj-9Lu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8oI-bH-Gj3" secondAttribute="trailing" constant="5" id="jrl-O8-hCr"/>
-                            <constraint firstItem="8oI-bH-Gj3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="nNH-Iy-1Jd"/>
                             <constraint firstAttribute="trailing" secondItem="a4C-fa-4E8" secondAttribute="trailing" id="rEv-zf-AHe"/>
                             <constraint firstItem="8ql-TT-v7g" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.08" id="wHN-Mg-zBy"/>
+                            <constraint firstItem="nJ8-dA-IiA" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xys-cY-5HE"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="calendarView" destination="8oI-bH-Gj3" id="UZt-Yj-QpA"/>
+                        <outlet property="calendarViewHeight" destination="IQw-pb-a4t" id="CLe-iO-GZP"/>
                         <outlet property="datePicker" destination="V5V-SD-1cV" id="Dyh-Mv-VwL"/>
                         <outlet property="datePickerView" destination="a4C-fa-4E8" id="ugk-f9-vF3"/>
+                        <outlet property="eventTableView" destination="I99-cs-WTY" id="MKx-84-uGQ"/>
                         <outlet property="monthLabel" destination="avN-SO-IeI" id="pSr-yW-mKX"/>
                     </connections>
                 </viewController>
