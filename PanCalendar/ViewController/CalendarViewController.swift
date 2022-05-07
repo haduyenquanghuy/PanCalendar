@@ -39,6 +39,7 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         calendarView.register(CalendarCollectionViewCell.nib(), forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
         calendarView.register(CalendarFooterReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CalendarFooterReusableView.identifier)
+        eventTableView.register(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventTableViewCell")
         dates = dateTimeManager.dates
         monthLabel.text = dateTimeManager.currentMonthText
         weekdays = Calendar(identifier: .iso8601).weekdaySymbols.map { $0.uppercased() }
@@ -225,10 +226,10 @@ extension CalendarViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
         
         // For a standard cell, use the UITableViewCell properties.
-        cell.textLabel!.text = "Title text"
+//        cell.textLabel!.text = "Title text"
         return cell
     }
     

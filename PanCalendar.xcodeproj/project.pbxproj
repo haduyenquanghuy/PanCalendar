@@ -22,6 +22,10 @@
 		BF0748AF281F3E6B00FCBA22 /* CalendarFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748AD281F3E6B00FCBA22 /* CalendarFooterReusableView.swift */; };
 		BF0748B0281F3E6B00FCBA22 /* CalendarFooterReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0748AE281F3E6B00FCBA22 /* CalendarFooterReusableView.xib */; };
 		BF0748B3281F61C600FCBA22 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748B2281F61C600FCBA22 /* Common.swift */; };
+		BF0748D72825687000FCBA22 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748D52825687000FCBA22 /* EventTableViewCell.swift */; };
+		BF0748D82825687000FCBA22 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0748D62825687000FCBA22 /* EventTableViewCell.xib */; };
+		BF0748DB28256ABB00FCBA22 /* PanCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748DA28256ABB00FCBA22 /* PanCornerButton.swift */; };
+		BF0748E02825C04000FCBA22 /* PanIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		BF0748AD281F3E6B00FCBA22 /* CalendarFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFooterReusableView.swift; sourceTree = "<group>"; };
 		BF0748AE281F3E6B00FCBA22 /* CalendarFooterReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarFooterReusableView.xib; sourceTree = "<group>"; };
 		BF0748B2281F61C600FCBA22 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		BF0748D52825687000FCBA22 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		BF0748D62825687000FCBA22 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
+		BF0748DA28256ABB00FCBA22 /* PanCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanCornerButton.swift; sourceTree = "<group>"; };
+		BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanIconLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +133,9 @@
 		BF074892281D362000FCBA22 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				BF0748DE2825C02A00FCBA22 /* IconLabel */,
+				BF0748D928256A4D00FCBA22 /* RoundLabel */,
+				BF0748D42825682F00FCBA22 /* EventTableViewCell */,
 				BF0748A2281F36B400FCBA22 /* CalendarCollectionViewHeader */,
 				BF074893281D366300FCBA22 /* CalendarCollectionViewCell */,
 			);
@@ -164,6 +175,31 @@
 				BF0748B2281F61C600FCBA22 /* Common.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		BF0748D42825682F00FCBA22 /* EventTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF0748D52825687000FCBA22 /* EventTableViewCell.swift */,
+				BF0748D62825687000FCBA22 /* EventTableViewCell.xib */,
+			);
+			path = EventTableViewCell;
+			sourceTree = "<group>";
+		};
+		BF0748D928256A4D00FCBA22 /* RoundLabel */ = {
+			isa = PBXGroup;
+			children = (
+				BF0748DA28256ABB00FCBA22 /* PanCornerButton.swift */,
+			);
+			path = RoundLabel;
+			sourceTree = "<group>";
+		};
+		BF0748DE2825C02A00FCBA22 /* IconLabel */ = {
+			isa = PBXGroup;
+			children = (
+				BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */,
+			);
+			path = IconLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF0748D82825687000FCBA22 /* EventTableViewCell.xib in Resources */,
 				BF074897281D36BE00FCBA22 /* CalendarCollectionViewCell.xib in Resources */,
 				BF074887281D341200FCBA22 /* LaunchScreen.storyboard in Resources */,
 				BF0748B0281F3E6B00FCBA22 /* CalendarFooterReusableView.xib in Resources */,
@@ -240,9 +277,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF074896281D36BE00FCBA22 /* CalendarCollectionViewCell.swift in Sources */,
+				BF0748E02825C04000FCBA22 /* PanIconLabel.swift in Sources */,
+				BF0748D72825687000FCBA22 /* EventTableViewCell.swift in Sources */,
 				BF0748AF281F3E6B00FCBA22 /* CalendarFooterReusableView.swift in Sources */,
 				BF07487F281D341000FCBA22 /* CalendarViewController.swift in Sources */,
 				BF0748AA281F3B4300FCBA22 /* PHexColor.swift in Sources */,
+				BF0748DB28256ABB00FCBA22 /* PanCornerButton.swift in Sources */,
 				BF07489E281DEC3E00FCBA22 /* PDate.swift in Sources */,
 				BF07489A281DE40B00FCBA22 /* DateTimeModel.swift in Sources */,
 				BF07487B281D341000FCBA22 /* AppDelegate.swift in Sources */,
