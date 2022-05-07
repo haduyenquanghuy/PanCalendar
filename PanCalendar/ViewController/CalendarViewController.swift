@@ -213,7 +213,7 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         if section == SectionType.dateSection.rawValue {
-            return CGSize(width: calendarView.frame.width, height: 24)
+            return CGSize(width: calendarView.frame.width, height: 16)
         }
         return CGSize(width: calendarView.frame.width, height: 1)
     }

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-dA-IiA">
-                                <rect key="frame" x="5" y="115.5" width="404" height="746.5"/>
+                                <rect key="frame" x="5" y="98" width="404" height="764"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8oI-bH-Gj3">
                                         <rect key="frame" x="0.0" y="0.0" width="404" height="200"/>
@@ -53,7 +53,7 @@
                                         </connections>
                                     </collectionView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="I99-cs-WTY">
-                                        <rect key="frame" x="0.0" y="200" width="404" height="546.5"/>
+                                        <rect key="frame" x="0.0" y="200" width="404" height="564"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventTableViewCell" textLabel="Vn4-a8-1kD" style="IBUITableViewCellStyleDefault" id="qdV-3E-nip">
                                                 <rect key="frame" x="0.0" y="44.5" width="404" height="44"/>
@@ -81,13 +81,13 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ql-TT-v7g" userLabel="CalendarHeader">
-                                <rect key="frame" x="5" y="44" width="414" height="71.5"/>
+                                <rect key="frame" x="5" y="44" width="414" height="54"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="fOr-l0-CHR">
-                                        <rect key="frame" x="8" y="0.0" width="398" height="71.5"/>
+                                        <rect key="frame" x="8" y="0.0" width="398" height="54"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6G-q7-JDQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="45.5" height="71.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="45.5" height="54"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
@@ -96,13 +96,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avN-SO-IeI">
-                                                <rect key="frame" x="151.5" y="0.0" width="94.5" height="71.5"/>
+                                                <rect key="frame" x="151.5" y="0.0" width="94.5" height="54"/>
                                                 <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kT1-hn-o0c">
-                                                <rect key="frame" x="351" y="0.0" width="47" height="71.5"/>
+                                                <rect key="frame" x="351" y="0.0" width="47" height="54"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="calendar" catalog="system"/>
@@ -121,6 +121,21 @@
                                     <constraint firstAttribute="trailing" secondItem="fOr-l0-CHR" secondAttribute="trailing" constant="8" id="y2x-OT-AvJ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeA-z5-V4k">
+                                <rect key="frame" x="346" y="802" width="60" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.52156862745098043" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oeA-z5-V4k" secondAttribute="height" id="6st-Ow-thw"/>
+                                    <constraint firstAttribute="height" constant="60" id="aQn-Ao-eBY"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <buttonConfiguration key="configuration" style="plain" image="add_symbol"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4C-fa-4E8">
                                 <rect key="frame" x="0.0" y="638" width="414" height="224"/>
                                 <subviews>
@@ -174,8 +189,10 @@
                             <constraint firstItem="nJ8-dA-IiA" firstAttribute="top" secondItem="8ql-TT-v7g" secondAttribute="bottom" id="doI-sV-Sq2"/>
                             <constraint firstAttribute="trailing" secondItem="nJ8-dA-IiA" secondAttribute="trailing" constant="5" id="gi9-VD-uzc"/>
                             <constraint firstItem="8ql-TT-v7g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="hTI-mj-9Lu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oeA-z5-V4k" secondAttribute="bottom" id="kfz-he-sWh"/>
                             <constraint firstAttribute="trailing" secondItem="a4C-fa-4E8" secondAttribute="trailing" id="rEv-zf-AHe"/>
-                            <constraint firstItem="8ql-TT-v7g" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.08" id="wHN-Mg-zBy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oeA-z5-V4k" secondAttribute="trailing" constant="8" id="vHD-Co-DQa"/>
+                            <constraint firstItem="8ql-TT-v7g" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.06" id="wHN-Mg-zBy" userLabel="CalendarHeader.height = 0.05 × height"/>
                             <constraint firstItem="nJ8-dA-IiA" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xys-cY-5HE"/>
                         </constraints>
                     </view>
@@ -194,6 +211,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add_symbol" width="30" height="30"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
