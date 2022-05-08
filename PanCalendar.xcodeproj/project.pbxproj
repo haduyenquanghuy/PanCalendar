@@ -26,6 +26,9 @@
 		BF0748D82825687000FCBA22 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0748D62825687000FCBA22 /* EventTableViewCell.xib */; };
 		BF0748DB28256ABB00FCBA22 /* PanCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748DA28256ABB00FCBA22 /* PanCornerButton.swift */; };
 		BF0748E02825C04000FCBA22 /* PanIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */; };
+		BF1594C9282734D10049D59C /* PHighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594C8282734D10049D59C /* PHighlightButton.swift */; };
+		BF1594CB282736950049D59C /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CA282736950049D59C /* AddEventViewController.swift */; };
+		BF1594CE2827565D0049D59C /* PBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CD2827565D0049D59C /* PBottomBorderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		BF0748D62825687000FCBA22 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		BF0748DA28256ABB00FCBA22 /* PanCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanCornerButton.swift; sourceTree = "<group>"; };
 		BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanIconLabel.swift; sourceTree = "<group>"; };
+		BF1594C8282734D10049D59C /* PHighlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHighlightButton.swift; sourceTree = "<group>"; };
+		BF1594CA282736950049D59C /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		BF1594CD2827565D0049D59C /* PBottomBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBottomBorderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				BF07487E281D341000FCBA22 /* CalendarViewController.swift */,
+				BF1594CA282736950049D59C /* AddEventViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -133,8 +140,10 @@
 		BF074892281D362000FCBA22 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				BF1594CC282756340049D59C /* BottomBorderView */,
+				BF1594C7282734B80049D59C /* HighlightButton */,
 				BF0748DE2825C02A00FCBA22 /* IconLabel */,
-				BF0748D928256A4D00FCBA22 /* RoundLabel */,
+				BF0748D928256A4D00FCBA22 /* RoundButton */,
 				BF0748D42825682F00FCBA22 /* EventTableViewCell */,
 				BF0748A2281F36B400FCBA22 /* CalendarCollectionViewHeader */,
 				BF074893281D366300FCBA22 /* CalendarCollectionViewCell */,
@@ -186,12 +195,12 @@
 			path = EventTableViewCell;
 			sourceTree = "<group>";
 		};
-		BF0748D928256A4D00FCBA22 /* RoundLabel */ = {
+		BF0748D928256A4D00FCBA22 /* RoundButton */ = {
 			isa = PBXGroup;
 			children = (
 				BF0748DA28256ABB00FCBA22 /* PanCornerButton.swift */,
 			);
-			path = RoundLabel;
+			path = RoundButton;
 			sourceTree = "<group>";
 		};
 		BF0748DE2825C02A00FCBA22 /* IconLabel */ = {
@@ -200,6 +209,22 @@
 				BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */,
 			);
 			path = IconLabel;
+			sourceTree = "<group>";
+		};
+		BF1594C7282734B80049D59C /* HighlightButton */ = {
+			isa = PBXGroup;
+			children = (
+				BF1594C8282734D10049D59C /* PHighlightButton.swift */,
+			);
+			path = HighlightButton;
+			sourceTree = "<group>";
+		};
+		BF1594CC282756340049D59C /* BottomBorderView */ = {
+			isa = PBXGroup;
+			children = (
+				BF1594CD2827565D0049D59C /* PBottomBorderView.swift */,
+			);
+			path = BottomBorderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1594CE2827565D0049D59C /* PBottomBorderView.swift in Sources */,
 				BF074896281D36BE00FCBA22 /* CalendarCollectionViewCell.swift in Sources */,
+				BF1594CB282736950049D59C /* AddEventViewController.swift in Sources */,
 				BF0748E02825C04000FCBA22 /* PanIconLabel.swift in Sources */,
 				BF0748D72825687000FCBA22 /* EventTableViewCell.swift in Sources */,
+				BF1594C9282734D10049D59C /* PHighlightButton.swift in Sources */,
 				BF0748AF281F3E6B00FCBA22 /* CalendarFooterReusableView.swift in Sources */,
 				BF07487F281D341000FCBA22 /* CalendarViewController.swift in Sources */,
 				BF0748AA281F3B4300FCBA22 /* PHexColor.swift in Sources */,

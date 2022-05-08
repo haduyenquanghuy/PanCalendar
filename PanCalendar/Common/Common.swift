@@ -7,6 +7,6 @@
 
 import Foundation
 
-//enum PanFont: String {
-//    
-//}
+struct Constant {
+    static let extraSpaceToScroll = 25.0
+}

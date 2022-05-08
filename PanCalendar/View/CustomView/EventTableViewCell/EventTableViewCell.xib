@@ -194,19 +194,19 @@
     </objects>
     <designables>
         <designable name="86G-FI-LaU">
-            <size key="intrinsicContentSize" width="75" height="21"/>
+            <size key="intrinsicContentSize" width="40" height="21"/>
         </designable>
         <designable name="B77-I7-lf3">
-            <size key="intrinsicContentSize" width="75" height="21"/>
+            <size key="intrinsicContentSize" width="40" height="21"/>
         </designable>
         <designable name="ZvZ-yM-po0">
             <size key="intrinsicContentSize" width="87" height="28"/>
         </designable>
         <designable name="uZ1-Fv-uJ5">
-            <size key="intrinsicContentSize" width="122.5" height="21"/>
+            <size key="intrinsicContentSize" width="86.5" height="21"/>
         </designable>
         <designable name="wu4-Yy-R04">
-            <size key="intrinsicContentSize" width="114.5" height="21"/>
+            <size key="intrinsicContentSize" width="78.5" height="21"/>
         </designable>
     </designables>
     <resources>

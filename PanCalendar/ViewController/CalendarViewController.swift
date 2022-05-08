@@ -21,6 +21,8 @@ class CalendarViewController: UIViewController {
     var chosenItem: IndexPath?
     var chosenDate: Date?
     
+    @IBOutlet weak var addButton: PHighlightButton!
+    
     @IBOutlet weak var calendarViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -46,6 +48,11 @@ class CalendarViewController: UIViewController {
         
         calendarView.addGestureRecognizer(createSwipeGestureRecognizer(for: .left))
         calendarView.addGestureRecognizer(createSwipeGestureRecognizer(for: .right))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,6 +81,12 @@ class CalendarViewController: UIViewController {
         return swipeGestureRecognizer
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAddEvent" {
+            print("abcdd")
+        }
+    }
+    
     //MARK: - Action Handler
     @IBAction func pressSearch(_ sender: UIButton) {
         showDatePickerView(hidden: false)
@@ -83,6 +96,9 @@ class CalendarViewController: UIViewController {
         showDatePickerView(hidden: true)
     }
     
+    @IBAction func pressAdd(_ sender: UIButton) {
+       
+    }
     @IBAction func pressDoneDatePicker(_ sender: UIBarButtonItem) {
         let pickedDate = datePicker.date
         dateTimeManager = DateTimeManager(currentDate: pickedDate)
