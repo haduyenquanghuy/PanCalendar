@@ -26,6 +26,8 @@
 		BF0748D82825687000FCBA22 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0748D62825687000FCBA22 /* EventTableViewCell.xib */; };
 		BF0748DB28256ABB00FCBA22 /* PanCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748DA28256ABB00FCBA22 /* PanCornerButton.swift */; };
 		BF0748E02825C04000FCBA22 /* PanIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */; };
+		BF100FEF282808EF00E9CB8B /* PBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF100FEE282808EF00E9CB8B /* PBottomBorderTextField.swift */; };
+		BF100FF128281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF100FF028281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift */; };
 		BF1594C9282734D10049D59C /* PHighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594C8282734D10049D59C /* PHighlightButton.swift */; };
 		BF1594CB282736950049D59C /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CA282736950049D59C /* AddEventViewController.swift */; };
 		BF1594CE2827565D0049D59C /* PBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CD2827565D0049D59C /* PBottomBorderView.swift */; };
@@ -53,6 +55,8 @@
 		BF0748D62825687000FCBA22 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		BF0748DA28256ABB00FCBA22 /* PanCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanCornerButton.swift; sourceTree = "<group>"; };
 		BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanIconLabel.swift; sourceTree = "<group>"; };
+		BF100FEE282808EF00E9CB8B /* PBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBottomBorderTextField.swift; sourceTree = "<group>"; };
+		BF100FF028281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHideCursorBottomBorderTextField.swift; sourceTree = "<group>"; };
 		BF1594C8282734D10049D59C /* PHighlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHighlightButton.swift; sourceTree = "<group>"; };
 		BF1594CA282736950049D59C /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		BF1594CD2827565D0049D59C /* PBottomBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBottomBorderView.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 		BF074892281D362000FCBA22 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				BF100FED2828089C00E9CB8B /* BottomBorderTextField */,
 				BF1594CC282756340049D59C /* BottomBorderView */,
 				BF1594C7282734B80049D59C /* HighlightButton */,
 				BF0748DE2825C02A00FCBA22 /* IconLabel */,
@@ -209,6 +214,15 @@
 				BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */,
 			);
 			path = IconLabel;
+			sourceTree = "<group>";
+		};
+		BF100FED2828089C00E9CB8B /* BottomBorderTextField */ = {
+			isa = PBXGroup;
+			children = (
+				BF100FEE282808EF00E9CB8B /* PBottomBorderTextField.swift */,
+				BF100FF028281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift */,
+			);
+			path = BottomBorderTextField;
 			sourceTree = "<group>";
 		};
 		BF1594C7282734B80049D59C /* HighlightButton */ = {
@@ -311,6 +325,8 @@
 				BF07487F281D341000FCBA22 /* CalendarViewController.swift in Sources */,
 				BF0748AA281F3B4300FCBA22 /* PHexColor.swift in Sources */,
 				BF0748DB28256ABB00FCBA22 /* PanCornerButton.swift in Sources */,
+				BF100FEF282808EF00E9CB8B /* PBottomBorderTextField.swift in Sources */,
+				BF100FF128281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift in Sources */,
 				BF07489E281DEC3E00FCBA22 /* PDate.swift in Sources */,
 				BF07489A281DE40B00FCBA22 /* DateTimeModel.swift in Sources */,
 				BF07487B281D341000FCBA22 /* AppDelegate.swift in Sources */,

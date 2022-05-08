@@ -7,6 +7,20 @@
 
 import Foundation
 
+enum PDateFormat: String {
+    case longFormat =  "MMM d yyyy, HH:mm"
+}
+
 struct Constant {
-    static let extraSpaceToScroll = 25.0
+    static let extraSpaceToScroll = 80.0
+}
+
+struct Common {
+    static func convertDate(_ date: Date, with format: PDateFormat) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format.rawValue
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        return dateFormatter.string(from: date)
+    }
 }
