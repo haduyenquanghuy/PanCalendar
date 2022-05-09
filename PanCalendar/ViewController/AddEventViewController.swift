@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import ChameleonFramework
+import Toast_Swift
 
 class AddEventViewController: UIViewController {
 
+    @IBOutlet weak var saveButton: UIButton!
+    
     @IBOutlet weak var startTimeTextField: UITextField!
     
     @IBOutlet weak var endTimeTextField: UITextField!
@@ -38,6 +42,13 @@ class AddEventViewController: UIViewController {
         
         descriptionTextField.delegate = self
         titleTextField.delegate = self
+        
+        titleTextField.addTarget(self, action: #selector(textFieldDidChange(textField: )), for: UIControl.Event.editingChanged)
+        
+        let currentDate = Date()
+        startTimeTextField.text = Common.convertDate(currentDate, with: PDateFormat.longFormat)
+        endTimeTextField.text = Common.convertDate(currentDate.addingTimeInterval(60), with: PDateFormat.longFormat)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,7 +65,7 @@ class AddEventViewController: UIViewController {
         
         let dontBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil);
-        let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(donePressed))
+        let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelPressed))
         
         
         toolbar.setItems([cancelBtn,flexibleSpace,dontBtn], animated: true)
@@ -66,14 +77,45 @@ class AddEventViewController: UIViewController {
         datePicker.datePickerMode = .dateAndTime
     }
     
+    //MARK: - Action Handler
+    
+    @IBAction func pressSave(_ sender: Any) {
+        
+        
+    }
+    
     @objc func donePressed() {
-        let dateVal = Common.convertDate(datePicker.date, with: PDateFormat.longFormat)
+        let datePickerDate = datePicker.date
+        let dateVal = Common.convertDate(datePickerDate, with: PDateFormat.longFormat)
         if startTimeTextField.isFirstResponder {
-            startTimeTextField.text = "\(dateVal)"
+            let endTime = Common.convertDate(endTimeTextField.text!, with: .longFormat)!
+            if endTime < datePickerDate {
+                view.makeToast("Start time must before end time!", duration: 3.0, position: .bottom, style:ToastStyle())
+            } else {
+                startTimeTextField.text = "\(dateVal)"
+            }
+            
         } else if endTimeTextField.isFirstResponder {
-            endTimeTextField.text = "\(dateVal)"
+            let startTime = Common.convertDate(startTimeTextField.text!, with: .longFormat)!
+            if datePickerDate < startTime.addingTimeInterval(60) {
+                view.makeToast("Start time must before end time!", duration: 3.0, position: .bottom, style:ToastStyle())
+            } else {
+                endTimeTextField.text = "\(dateVal)"
+            }
         }
         self.view.endEditing(true)
+    }
+    
+    @objc func cancelPressed() {
+        self.view.endEditing(true)
+    }
+    
+    @objc func textFieldDidChange(textField: UITextField) {
+        if textField == titleTextField, let text = textField.text {
+            let isTextFieldEmpty = text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            saveButton.isEnabled = !isTextFieldEmpty
+            saveButton.alpha = isTextFieldEmpty ? 0.85 : 1.0
+        }
     }
 
     @IBAction func calendarStartButton(_ sender: UIButton) {
@@ -87,11 +129,13 @@ class AddEventViewController: UIViewController {
     }
     
     @IBAction func didChosenColor(_ sender: UIButton) {
-        sender.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        sender.setImage(UIImage(systemName: "sparkles"), for: .normal)
         lastChosenColor?.setImage(UIImage(), for: .normal)
         lastChosenColor = sender
     }
 }
+
+//MARK: - UITextFieldDelegate
 
 extension AddEventViewController: UITextFieldDelegate {
     
@@ -99,4 +143,11 @@ extension AddEventViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let text = textField.text {
+            textField.text = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+    }
+    
 }

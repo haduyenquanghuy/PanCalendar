@@ -28,6 +28,7 @@
 		BF0748E02825C04000FCBA22 /* PanIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */; };
 		BF100FEF282808EF00E9CB8B /* PBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF100FEE282808EF00E9CB8B /* PBottomBorderTextField.swift */; };
 		BF100FF128281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF100FF028281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift */; };
+		BF100FF428295DC500E9CB8B /* TaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF100FF228295DC500E9CB8B /* TaskManager.xcdatamodeld */; };
 		BF1594C9282734D10049D59C /* PHighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594C8282734D10049D59C /* PHighlightButton.swift */; };
 		BF1594CB282736950049D59C /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CA282736950049D59C /* AddEventViewController.swift */; };
 		BF1594CE2827565D0049D59C /* PBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CD2827565D0049D59C /* PBottomBorderView.swift */; };
@@ -60,6 +61,7 @@
 		BF0748DF2825C04000FCBA22 /* PanIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanIconLabel.swift; sourceTree = "<group>"; };
 		BF100FEE282808EF00E9CB8B /* PBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBottomBorderTextField.swift; sourceTree = "<group>"; };
 		BF100FF028281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHideCursorBottomBorderTextField.swift; sourceTree = "<group>"; };
+		BF100FF328295DC500E9CB8B /* TaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskManager.xcdatamodel; sourceTree = "<group>"; };
 		BF1594C8282734D10049D59C /* PHighlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHighlightButton.swift; sourceTree = "<group>"; };
 		BF1594CA282736950049D59C /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		BF1594CD2827565D0049D59C /* PBottomBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBottomBorderView.swift; sourceTree = "<group>"; };
@@ -84,7 +86,6 @@
 				9191A08ED650A61BD8E630A3 /* Pods-PanCalendar.debug.xcconfig */,
 				D605597C067ECADDD635EB38 /* Pods-PanCalendar.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -117,6 +118,7 @@
 				BF07488F281D35B600FCBA22 /* ViewController */,
 				BF07488E281D35AB00FCBA22 /* View */,
 				BF074891281D35E600FCBA22 /* Supporting Files */,
+				BF100FF228295DC500E9CB8B /* TaskManager.xcdatamodeld */,
 				BF074888281D341200FCBA22 /* Info.plist */,
 			);
 			path = PanCalendar;
@@ -385,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1594CE2827565D0049D59C /* PBottomBorderView.swift in Sources */,
+				BF100FF428295DC500E9CB8B /* TaskManager.xcdatamodeld in Sources */,
 				BF074896281D36BE00FCBA22 /* CalendarCollectionViewCell.swift in Sources */,
 				BF1594CB282736950049D59C /* AddEventViewController.swift in Sources */,
 				BF0748E02825C04000FCBA22 /* PanIconLabel.swift in Sources */,
@@ -621,6 +624,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BF100FF228295DC500E9CB8B /* TaskManager.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF100FF328295DC500E9CB8B /* TaskManager.xcdatamodel */,
+			);
+			currentVersion = BF100FF328295DC500E9CB8B /* TaskManager.xcdatamodel */;
+			path = TaskManager.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BF07486F281D341000FCBA22 /* Project object */;
 }

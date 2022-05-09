@@ -241,9 +241,10 @@
                                                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter task name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQa-ld-STz" customClass="PBottomBorderLabel" customModule="PanCalendar" customModuleProvider="target">
-                                                                <rect key="frame" x="24" y="56.5" width="342" height="18.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter task name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQa-ld-STz" customClass="PBottomBorderLabel" customModule="PanCalendar" customModuleProvider="target">
+                                                                <rect key="frame" x="24" y="52.5" width="342" height="22.5"/>
+                                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                             </textField>
                                                         </subviews>
@@ -257,8 +258,34 @@
                                                             <constraint firstItem="5B3-yJ-1U4" firstAttribute="top" secondItem="fK5-0q-RkM" secondAttribute="top" constant="8" id="zry-ba-GIC"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gG-Ts-bF9">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3x-n7-8H4">
                                                         <rect key="frame" x="0.0" y="98" width="390" height="90"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIL-Nd-5ju">
+                                                                <rect key="frame" x="8" y="8" width="101" height="23"/>
+                                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give some information..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TYo-Oq-ubO" customClass="PBottomBorderLabel" customModule="PanCalendar" customModuleProvider="target">
+                                                                <rect key="frame" x="24" y="52.5" width="342" height="22.5"/>
+                                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <constraints>
+                                                            <constraint firstItem="MIL-Nd-5ju" firstAttribute="leading" secondItem="b3x-n7-8H4" secondAttribute="leading" constant="8" id="06j-gq-xxp"/>
+                                                            <constraint firstAttribute="trailing" secondItem="TYo-Oq-ubO" secondAttribute="trailing" constant="24" id="Bj6-v9-6tH"/>
+                                                            <constraint firstItem="TYo-Oq-ubO" firstAttribute="leading" secondItem="b3x-n7-8H4" secondAttribute="leading" constant="24" id="CsT-4f-cGb"/>
+                                                            <constraint firstItem="MIL-Nd-5ju" firstAttribute="top" secondItem="b3x-n7-8H4" secondAttribute="top" constant="8" id="bws-eU-Nq4"/>
+                                                            <constraint firstAttribute="bottom" secondItem="TYo-Oq-ubO" secondAttribute="bottom" constant="15" id="hH9-tv-X57"/>
+                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MIL-Nd-5ju" secondAttribute="trailing" constant="20" symbolic="YES" id="zI1-Fy-Dnh"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gG-Ts-bF9">
+                                                        <rect key="frame" x="0.0" y="196" width="390" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVS-xO-FCX">
                                                                 <rect key="frame" x="8" y="8" width="81" height="23"/>
@@ -272,7 +299,8 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QHg-FO-WxO" customClass="PHideCursorBottomBorderTextField" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="319" height="31"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="430-AE-P6r">
@@ -310,7 +338,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0a-LE-UlN">
-                                                        <rect key="frame" x="0.0" y="196" width="390" height="90"/>
+                                                        <rect key="frame" x="0.0" y="294" width="390" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q5-0U-EQb">
                                                                 <rect key="frame" x="8" y="8" width="72" height="23"/>
@@ -324,7 +352,8 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CPh-Ux-won" customClass="PHideCursorBottomBorderTextField" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="319" height="31"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="038-NU-Tc5">
@@ -361,7 +390,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbw-qc-DM3">
-                                                        <rect key="frame" x="0.0" y="294" width="390" height="90"/>
+                                                        <rect key="frame" x="0.0" y="392" width="390" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8U-zU-yPE">
                                                                 <rect key="frame" x="8" y="8" width="49" height="23"/>
@@ -369,22 +398,22 @@
                                                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="EpD-6R-ZMJ">
-                                                                <rect key="frame" x="57" y="54" width="276" height="24"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EpD-6R-ZMJ">
+                                                                <rect key="frame" x="40" y="48" width="310" height="30"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dz7-tz-zL9" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.92156862745098034" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="24" id="4Jj-9h-1hS"/>
+                                                                            <constraint firstAttribute="height" constant="30" id="4Jj-9h-1hS"/>
                                                                             <constraint firstAttribute="width" secondItem="dz7-tz-zL9" secondAttribute="height" id="VEp-uf-GGu"/>
                                                                         </constraints>
-                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" image="checkmark" catalog="system"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" image="sparkles" catalog="system"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rounded">
-                                                                                <real key="value" value="12"/>
+                                                                                <real key="value" value="15"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -392,17 +421,17 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-UW-4vI" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
-                                                                        <rect key="frame" x="36" y="0.0" width="24" height="24"/>
+                                                                        <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.97647058823529409" green="0.85098039215686272" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Nzw-UW-4vI" secondAttribute="height" id="tWO-4J-n2b"/>
                                                                         </constraints>
-                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rounded">
-                                                                                <real key="value" value="12"/>
+                                                                                <real key="value" value="15"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -410,17 +439,17 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R6-uS-ZoH" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
-                                                                        <rect key="frame" x="72" y="0.0" width="24" height="24"/>
+                                                                        <rect key="frame" x="80" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.23921568627450979" green="0.69803921568627447" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="1R6-uS-ZoH" secondAttribute="height" id="JKK-BG-eM4"/>
                                                                         </constraints>
-                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rounded">
-                                                                                <real key="value" value="12"/>
+                                                                                <real key="value" value="15"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -428,17 +457,17 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOY-CD-LfV" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
-                                                                        <rect key="frame" x="108" y="0.0" width="24" height="24"/>
+                                                                        <rect key="frame" x="120" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.21176470588235294" green="0.68235294117647061" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="TOY-CD-LfV" secondAttribute="height" id="adB-a0-udh"/>
                                                                         </constraints>
-                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rounded">
-                                                                                <real key="value" value="12"/>
+                                                                                <real key="value" value="15"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -446,17 +475,17 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jm9-Ym-UuC" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
-                                                                        <rect key="frame" x="144" y="0.0" width="24" height="24"/>
+                                                                        <rect key="frame" x="160" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.094117647058823528" green="0.45490196078431372" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Jm9-Ym-UuC" secondAttribute="height" id="4lX-m2-s84"/>
                                                                         </constraints>
-                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rounded">
-                                                                                <real key="value" value="12"/>
+                                                                                <real key="value" value="15"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -464,17 +493,17 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBz-5M-etq" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
-                                                                        <rect key="frame" x="180" y="0.0" width="24" height="24"/>
+                                                                        <rect key="frame" x="200" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.70980392156862748" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="TBz-5M-etq" secondAttribute="height" id="ITv-eY-hCo"/>
                                                                         </constraints>
-                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rounded">
-                                                                                <real key="value" value="12"/>
+                                                                                <real key="value" value="15"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -482,17 +511,17 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-eX-tv6" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
-                                                                        <rect key="frame" x="216" y="0.0" width="24" height="24"/>
+                                                                        <rect key="frame" x="240" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="1" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="yXm-eX-tv6" secondAttribute="height" id="f0M-bd-PUA"/>
                                                                         </constraints>
-                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rounded">
-                                                                                <real key="value" value="12"/>
+                                                                                <real key="value" value="15"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -500,17 +529,17 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGJ-tQ-hLd" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
-                                                                        <rect key="frame" x="252" y="0.0" width="24" height="24"/>
+                                                                        <rect key="frame" x="280" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.95294117647058818" green="0.54509803921568623" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="oGJ-tQ-hLd" secondAttribute="height" id="Y7B-gP-Ene"/>
                                                                         </constraints>
-                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rounded">
-                                                                                <real key="value" value="12"/>
+                                                                                <real key="value" value="15"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
@@ -540,7 +569,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfg-rS-Wui">
-                                                        <rect key="frame" x="0.0" y="392" width="390" height="90"/>
+                                                        <rect key="frame" x="0.0" y="490" width="390" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uid-Sr-3ds">
                                                                 <rect key="frame" x="8" y="8" width="38" height="23"/>
@@ -567,7 +596,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pff-w9-7ij">
-                                                        <rect key="frame" x="0.0" y="490" width="390" height="90"/>
+                                                        <rect key="frame" x="0.0" y="588" width="390" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuY-dg-Alu">
                                                                 <rect key="frame" x="8" y="8" width="87.5" height="20.5"/>
@@ -592,31 +621,6 @@
                                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OuY-dg-Alu" secondAttribute="trailing" constant="20" symbolic="YES" id="xTB-OU-TfF"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3x-n7-8H4">
-                                                        <rect key="frame" x="0.0" y="588" width="390" height="90"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIL-Nd-5ju">
-                                                                <rect key="frame" x="8" y="8" width="101" height="23"/>
-                                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give some information" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TYo-Oq-ubO" customClass="PBottomBorderLabel" customModule="PanCalendar" customModuleProvider="target">
-                                                                <rect key="frame" x="24" y="56.5" width="342" height="18.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                                            </textField>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                                        <constraints>
-                                                            <constraint firstItem="MIL-Nd-5ju" firstAttribute="leading" secondItem="b3x-n7-8H4" secondAttribute="leading" constant="8" id="06j-gq-xxp"/>
-                                                            <constraint firstAttribute="trailing" secondItem="TYo-Oq-ubO" secondAttribute="trailing" constant="24" id="Bj6-v9-6tH"/>
-                                                            <constraint firstItem="TYo-Oq-ubO" firstAttribute="leading" secondItem="b3x-n7-8H4" secondAttribute="leading" constant="24" id="CsT-4f-cGb"/>
-                                                            <constraint firstItem="MIL-Nd-5ju" firstAttribute="top" secondItem="b3x-n7-8H4" secondAttribute="top" constant="8" id="bws-eU-Nq4"/>
-                                                            <constraint firstAttribute="bottom" secondItem="TYo-Oq-ubO" secondAttribute="bottom" constant="15" id="hH9-tv-X57"/>
-                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MIL-Nd-5ju" secondAttribute="trailing" constant="20" symbolic="YES" id="zI1-Fy-Dnh"/>
-                                                        </constraints>
-                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -638,7 +642,7 @@
                                     <constraint firstItem="znp-yI-p7f" firstAttribute="centerX" secondItem="hBD-Im-WKJ" secondAttribute="centerX" id="qn9-vx-kyh"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fP-eJ-4q7" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fP-eJ-4q7" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                 <rect key="frame" x="25" y="812" width="364" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.52156862749999999" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -646,7 +650,7 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save Task">
+                                <buttonConfiguration key="configuration" style="plain" title="SAVE TASK">
                                     <fontDescription key="titleFontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="18"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
@@ -654,6 +658,9 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pressSave:" destination="nl9-MS-FyC" eventType="touchUpInside" id="a3C-gG-Hxd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uhg-T8-VQe"/>
@@ -676,6 +683,7 @@
                         <outlet property="defaultChosenColorButton" destination="dz7-tz-zL9" id="YpR-sC-w56"/>
                         <outlet property="descriptionTextField" destination="TYo-Oq-ubO" id="474-aZ-BnD"/>
                         <outlet property="endTimeTextField" destination="CPh-Ux-won" id="gn5-3v-GWM"/>
+                        <outlet property="saveButton" destination="1fP-eJ-4q7" id="25q-vN-yO6"/>
                         <outlet property="scrollView" destination="hBD-Im-WKJ" id="N5M-fT-bCq"/>
                         <outlet property="stackView" destination="4ng-L5-5xl" id="pGe-CF-ld3"/>
                         <outlet property="startTimeTextField" destination="QHg-FO-WxO" id="0VA-Yp-bFb"/>
@@ -710,7 +718,7 @@
             <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="1fP-eJ-4q7">
-            <size key="intrinsicContentSize" width="115.5" height="35"/>
+            <size key="intrinsicContentSize" width="132" height="35"/>
         </designable>
         <designable name="Jm9-Ym-UuC">
             <size key="intrinsicContentSize" width="24" height="14"/>
@@ -725,7 +733,7 @@
             <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="dz7-tz-zL9">
-            <size key="intrinsicContentSize" width="44" height="31"/>
+            <size key="intrinsicContentSize" width="44.5" height="31"/>
         </designable>
         <designable name="oGJ-tQ-hLd">
             <size key="intrinsicContentSize" width="24" height="14"/>
@@ -737,16 +745,13 @@
     <resources>
         <image name="add_symbol" width="30" height="30"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="sparkles" catalog="system" width="112" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

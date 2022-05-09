@@ -23,4 +23,13 @@ struct Common {
         
         return dateFormatter.string(from: date)
     }
+    
+    static func convertDate(_ dateStr: String, with format: PDateFormat) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format.rawValue
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        let date = dateFormatter.date(from: dateStr)
+        
+        return date
+    }
 }

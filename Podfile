@@ -9,4 +9,8 @@ target 'PanCalendar' do
 
 pod 'IQKeyboardManagerSwift'
 
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+
+pod 'Toast-Swift', '~> 5.0.0'
+
 end
