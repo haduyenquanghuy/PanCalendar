@@ -8,9 +8,12 @@
 import UIKit
 import ChameleonFramework
 import Toast_Swift
+import CoreData
 
 class AddEventViewController: UIViewController {
-
+    
+    @IBOutlet weak var typeEventSegment: UISegmentedControl!
+    
     @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var startTimeTextField: UITextField!
@@ -33,7 +36,7 @@ class AddEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.isHidden = false
         createDatePicker(with: startTimeTextField)
@@ -55,6 +58,7 @@ class AddEventViewController: UIViewController {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.isHidden = false
         scrollView.contentSize = CGSize(width: 0, height: self.stackView.frame.height + Constant.extraSpaceToScroll)
+        //        addUser()
     }
     
     
@@ -80,8 +84,7 @@ class AddEventViewController: UIViewController {
     //MARK: - Action Handler
     
     @IBAction func pressSave(_ sender: Any) {
-        
-        
+        saveEvent()
     }
     
     @objc func donePressed() {
@@ -117,7 +120,7 @@ class AddEventViewController: UIViewController {
             saveButton.alpha = isTextFieldEmpty ? 0.85 : 1.0
         }
     }
-
+    
     @IBAction func calendarStartButton(_ sender: UIButton) {
         createDatePicker(with: startTimeTextField)
         startTimeTextField.becomeFirstResponder()
@@ -129,12 +132,44 @@ class AddEventViewController: UIViewController {
     }
     
     @IBAction func didChosenColor(_ sender: UIButton) {
-        sender.setImage(UIImage(systemName: "sparkles"), for: .normal)
         lastChosenColor?.setImage(UIImage(), for: .normal)
+        sender.setImage(UIImage(systemName: "sparkles"), for: .normal)
         lastChosenColor = sender
     }
+    
+    //MARK: - Core Data
+    
+    func saveEvent() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Event", in: managedContext)!
+        let event = NSManagedObject(entity: entity, insertInto: managedContext) as! Event
+        
+        guard let title = titleTextField.text,
+              let startTime = startTimeTextField.text,
+              let endTime = endTimeTextField.text,
+              let color = defaultChosenColorButton.backgroundColor?.hexValue()
+        else { return }
+        
+        event.title = title
+        event.startTime = Common.convertDate(startTime, with: .longFormat)
+        event.endTime = Common.convertDate(endTime, with: .longFormat)
+        event.color = color
+        event.type = typeEventSegment.titleForSegment(at: typeEventSegment.selectedSegmentIndex)
+        
+        if let description = descriptionTextField.text {
+            event.information = description
+        }
+        
+        do {
+            try managedContext.save()
+        } catch {
+            print("Could not save event!. \(error), \(error.localizedDescription)")
+        }
+    }
 }
-
 //MARK: - UITextFieldDelegate
 
 extension AddEventViewController: UITextFieldDelegate {

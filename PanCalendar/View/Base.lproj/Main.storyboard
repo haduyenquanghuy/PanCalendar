@@ -688,6 +688,7 @@
                         <outlet property="stackView" destination="4ng-L5-5xl" id="pGe-CF-ld3"/>
                         <outlet property="startTimeTextField" destination="QHg-FO-WxO" id="0VA-Yp-bFb"/>
                         <outlet property="titleTextField" destination="OQa-ld-STz" id="sfJ-Le-QH2"/>
+                        <outlet property="typeEventSegment" destination="WuP-5V-kZI" id="CHe-WH-w89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxA-12-xe0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

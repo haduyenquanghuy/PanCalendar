@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 enum SectionType: Int {
     case weekdaySection = 0
@@ -53,6 +54,7 @@ class CalendarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        loadEvents()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -97,8 +99,9 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func pressAdd(_ sender: UIButton) {
-       
+        
     }
+    
     @IBAction func pressDoneDatePicker(_ sender: UIBarButtonItem) {
         let pickedDate = datePicker.date
         dateTimeManager = DateTimeManager(currentDate: pickedDate)
@@ -139,6 +142,32 @@ class CalendarViewController: UIViewController {
     func setVarToDefaultWhenChangeMonthCalendar() {
         chosenItem = nil
         chosenDate = nil
+    }
+}
+
+//MARK: - CORE DATA
+
+func loadEvents() {
+    guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+        return
+    }
+    
+    let managedContext =
+    appDelegate.persistentContainer.viewContext
+    
+    //2
+    let fetchRequest =
+    NSFetchRequest<NSManagedObject>(entityName: "Event")
+    
+    //3
+    do {
+        let events = try managedContext.fetch(fetchRequest) as! [Event]
+        for event in events {
+            print(event.startTime!)
+        }
+    } catch let error as NSError {
+        print("Could not fetch. \(error), \(error.userInfo)")
     }
 }
 
@@ -245,7 +274,7 @@ extension CalendarViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
         
         // For a standard cell, use the UITableViewCell properties.
-//        cell.textLabel!.text = "Title text"
+        //        cell.textLabel!.text = "Title text"
         return cell
     }
     
