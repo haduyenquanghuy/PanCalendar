@@ -31,9 +31,12 @@
 		BF1594C9282734D10049D59C /* PHighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594C8282734D10049D59C /* PHighlightButton.swift */; };
 		BF1594CB282736950049D59C /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CA282736950049D59C /* AddEventViewController.swift */; };
 		BF1594CE2827565D0049D59C /* PBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CD2827565D0049D59C /* PBottomBorderView.swift */; };
+		CC64AB6A716A2F6CC62B5D4D /* Pods_PanCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9821589F1FC83F990FE7724D /* Pods_PanCalendar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9191A08ED650A61BD8E630A3 /* Pods-PanCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanCalendar.debug.xcconfig"; path = "Target Support Files/Pods-PanCalendar/Pods-PanCalendar.debug.xcconfig"; sourceTree = "<group>"; };
+		9821589F1FC83F990FE7724D /* Pods_PanCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF074877281D341000FCBA22 /* PanCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PanCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF07487A281D341000FCBA22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF07487C281D341000FCBA22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		BF1594C8282734D10049D59C /* PHighlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHighlightButton.swift; sourceTree = "<group>"; };
 		BF1594CA282736950049D59C /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		BF1594CD2827565D0049D59C /* PBottomBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBottomBorderView.swift; sourceTree = "<group>"; };
+		D605597C067ECADDD635EB38 /* Pods-PanCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanCalendar.release.xcconfig"; path = "Target Support Files/Pods-PanCalendar/Pods-PanCalendar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,17 +71,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC64AB6A716A2F6CC62B5D4D /* Pods_PanCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43A4B4D90F4DE79ADBA567F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9191A08ED650A61BD8E630A3 /* Pods-PanCalendar.debug.xcconfig */,
+				D605597C067ECADDD635EB38 /* Pods-PanCalendar.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BF07486E281D341000FCBA22 = {
 			isa = PBXGroup;
 			children = (
 				BF074879281D341000FCBA22 /* PanCalendar */,
 				BF074878281D341000FCBA22 /* Products */,
+				43A4B4D90F4DE79ADBA567F7 /* Pods */,
+				FFA52BF309E785D4C7C67B33 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -241,6 +258,14 @@
 			path = BottomBorderView;
 			sourceTree = "<group>";
 		};
+		FFA52BF309E785D4C7C67B33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9821589F1FC83F990FE7724D /* Pods_PanCalendar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -248,9 +273,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF07488B281D341200FCBA22 /* Build configuration list for PBXNativeTarget "PanCalendar" */;
 			buildPhases = (
+				86CAC46766E077836127BC9B /* [CP] Check Pods Manifest.lock */,
 				BF074873281D341000FCBA22 /* Sources */,
 				BF074874281D341000FCBA22 /* Frameworks */,
 				BF074875281D341000FCBA22 /* Resources */,
+				B6EE33158404B6BCB4C7A1FF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -309,6 +336,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86CAC46766E077836127BC9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PanCalendar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6EE33158404B6BCB4C7A1FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PanCalendar/Pods-PanCalendar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PanCalendar/Pods-PanCalendar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PanCalendar/Pods-PanCalendar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF074873281D341000FCBA22 /* Sources */ = {
@@ -474,6 +543,7 @@
 		};
 		BF07488C281D341200FCBA22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9191A08ED650A61BD8E630A3 /* Pods-PanCalendar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -502,6 +572,7 @@
 		};
 		BF07488D281D341200FCBA22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D605597C067ECADDD635EB38 /* Pods-PanCalendar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
