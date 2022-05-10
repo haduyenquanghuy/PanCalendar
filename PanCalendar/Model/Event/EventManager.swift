@@ -46,7 +46,7 @@ struct EventManager {
         let dateFrom = calendar.startOfDay(for: date)
         let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)!
         
-        let sameDatePredicate = NSPredicate(format: "startTime >= %@ AND endTime < %@ ", dateFrom as NSDate,  dateTo as NSDate)
+        let sameDatePredicate = NSPredicate(format: "startTime < %@ AND endTime >= %@ ", dateTo as NSDate,  dateFrom as NSDate)
         
         fetchRequest.predicate = sameDatePredicate
         

@@ -110,6 +110,7 @@ class CalendarViewController: UIViewController {
         chosenItem = nil
         reloadData()
         showDatePickerView(hidden: true)
+        monthLabel.text = Common.convertDate(pickedDate, with: .dateFormat)
     }
     
     func showDatePickerView(hidden: Bool) {
@@ -152,6 +153,8 @@ extension CalendarViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == SectionType.dateSection.rawValue {
+            let currentDate = dates[indexPath.row].currentDate
+            monthLabel.text = Common.convertDate(currentDate, with: .dateFormat)
             if let chosenItem = chosenItem {
                 let lastChosenCell = calendarView.cellForItem(at: chosenItem) as! CalendarCollectionViewCell
                 lastChosenCell.type = dates[chosenItem.row].isToday ? .today : .date
@@ -159,6 +162,8 @@ extension CalendarViewController: UICollectionViewDelegate {
             chosenItem = indexPath
             let chosenCell = calendarView.cellForItem(at: indexPath) as? CalendarCollectionViewCell
             chosenCell?.type = .chosen
+            events = EventManager.shared.loadEvents(by: currentDate)
+            eventTableView.reloadData()
         }
     }
     
