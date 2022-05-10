@@ -27,10 +27,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WmW-gh-dYf">
                                         <rect key="frame" x="8" y="0.0" width="392" height="32.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvZ-yM-po0" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="8" width="87" height="24.5"/>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvZ-yM-po0" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="8" width="100" height="24.5"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ofF-JC-7D7"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Important"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Important" buttonSize="mini">
@@ -44,6 +47,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYi-gi-JBu">
                                                 <rect key="frame" x="353.5" y="8" width="38.5" height="24.5"/>
+                                                <color key="tintColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system" buttonSize="mini"/>
                                             </button>
@@ -55,16 +59,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mXb-vv-uvl">
                                         <rect key="frame" x="8" y="40.5" width="392" height="47.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sprint planning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8M-kC-CEP">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sprint planning" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="X8M-kC-CEP">
                                                 <rect key="frame" x="0.0" y="0.0" width="143.5" height="18.5"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
-                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.22352941176470587" green="0.24313725490196078" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Catchup to plane for next week's sprint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4t-R2-u43">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Catchup to plane for next week's sprint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T4t-R2-u43">
                                                 <rect key="frame" x="0.0" y="26.5" width="290.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                                <color key="textColor" red="0.54117647058823526" green="0.50588235294117645" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.78823529411764703" green="0.83921568627450982" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -81,13 +85,13 @@
                                                             <constraint firstAttribute="width" constant="64" id="3Mx-pL-egH" userLabel="width = 64"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                                        <color key="textColor" red="0.54117647059999996" green="0.50588235290000005" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 3, 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ1-Fv-uJ5" customClass="PanIconLabel" customModule="PanCalendar" customModuleProvider="target">
                                                         <rect key="frame" x="76" y="0.0" width="191" height="21"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                                        <color key="textColor" red="0.54117647059999996" green="0.50588235290000005" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="calendar" catalog="system"/>
@@ -96,7 +100,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B77-I7-lf3" customClass="PanIconLabel" customModule="PanCalendar" customModuleProvider="target">
                                                         <rect key="frame" x="279" y="0.0" width="105" height="21"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                                        <color key="textColor" red="0.54117647059999996" green="0.50588235290000005" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="clock" catalog="system"/>
@@ -113,13 +117,13 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lj9-Yi-2UP">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="21"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                                        <color key="textColor" red="0.54117647059999996" green="0.50588235290000005" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 3, 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wu4-Yy-R04" customClass="PanIconLabel" customModule="PanCalendar" customModuleProvider="target">
                                                         <rect key="frame" x="76" y="0.0" width="191" height="21"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                                        <color key="textColor" red="0.54117647059999996" green="0.50588235290000005" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="calendar" catalog="system"/>
@@ -128,7 +132,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86G-FI-LaU" customClass="PanIconLabel" customModule="PanCalendar" customModuleProvider="target">
                                                         <rect key="frame" x="279" y="0.0" width="105" height="21"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                                        <color key="textColor" red="0.54117647059999996" green="0.50588235290000005" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="clock" catalog="system"/>
@@ -187,7 +191,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="descriptionLabel" destination="T4t-R2-u43" id="t9T-js-wPt"/>
+                <outlet property="endDate" destination="wu4-Yy-R04" id="F6g-Oy-4av"/>
+                <outlet property="endTime" destination="86G-FI-LaU" id="zUa-EW-ALE"/>
                 <outlet property="mainView" destination="V9e-Jn-aRw" id="7RX-Mb-uhN"/>
+                <outlet property="startDate" destination="uZ1-Fv-uJ5" id="lMV-XX-kab"/>
+                <outlet property="startTime" destination="B77-I7-lf3" id="E3F-tc-G0n"/>
+                <outlet property="titleLabel" destination="X8M-kC-CEP" id="vnE-hg-API"/>
+                <outlet property="typeButton" destination="ZvZ-yM-po0" id="Ksh-nZ-kGR"/>
             </connections>
             <point key="canvasLocation" x="243.47826086956525" y="103.79464285714285"/>
         </tableViewCell>

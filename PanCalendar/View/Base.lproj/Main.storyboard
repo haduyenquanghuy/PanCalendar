@@ -136,7 +136,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="pressAdd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JAy-Jz-fB8"/>
                                     <segue destination="nl9-MS-FyC" kind="show" identifier="goToAddEvent" id="v9o-vH-B5V"/>
                                 </connections>
                             </button>

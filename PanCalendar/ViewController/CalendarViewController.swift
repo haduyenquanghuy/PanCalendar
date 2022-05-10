@@ -38,6 +38,8 @@ class CalendarViewController: UIViewController {
     
     var dateTimeManager = DateTimeManager(currentDate: Date())
     
+    var events = [Event]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarView.register(CalendarCollectionViewCell.nib(), forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
@@ -54,7 +56,8 @@ class CalendarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        loadEvents()
+        events = EventManager.shared.loadEvents(by: Date())
+        eventTableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,6 +68,8 @@ class CalendarViewController: UIViewController {
     func reloadData() {
         dates = dateTimeManager.dates
         calendarView.reloadSections(IndexSet(integer: SectionType.dateSection.rawValue))
+        events = EventManager.shared.loadEvents(by: dateTimeManager.currentDate)
+        eventTableView.reloadData()
         monthLabel.text = dateTimeManager.currentMonthText
         resetHeightCalendar()
     }
@@ -85,7 +90,7 @@ class CalendarViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToAddEvent" {
-            print("abcdd")
+//            print("abcdd")
         }
     }
     
@@ -96,10 +101,6 @@ class CalendarViewController: UIViewController {
     
     @IBAction func pressCancelDatePicker(_ sender: UIBarButtonItem) {
         showDatePickerView(hidden: true)
-    }
-    
-    @IBAction func pressAdd(_ sender: UIButton) {
-        
     }
     
     @IBAction func pressDoneDatePicker(_ sender: UIBarButtonItem) {
@@ -145,32 +146,6 @@ class CalendarViewController: UIViewController {
     }
 }
 
-//MARK: - CORE DATA
-
-func loadEvents() {
-    guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-        return
-    }
-    
-    let managedContext =
-    appDelegate.persistentContainer.viewContext
-    
-    //2
-    let fetchRequest =
-    NSFetchRequest<NSManagedObject>(entityName: "Event")
-    
-    //3
-    do {
-        let events = try managedContext.fetch(fetchRequest) as! [Event]
-        for event in events {
-            print(event.startTime!)
-        }
-    } catch let error as NSError {
-        print("Could not fetch. \(error), \(error.userInfo)")
-    }
-}
-
 //MARK: - UICollectionViewDelegate
 
 extension CalendarViewController: UICollectionViewDelegate {
@@ -190,7 +165,6 @@ extension CalendarViewController: UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
-    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -267,14 +241,15 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
 extension CalendarViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
         
-        // For a standard cell, use the UITableViewCell properties.
-        //        cell.textLabel!.text = "Title text"
+        let eventIndex = events[indexPath.row]
+        cell.configUI(with: eventIndex)
+        
         return cell
     }
     

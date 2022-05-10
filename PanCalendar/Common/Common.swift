@@ -9,6 +9,8 @@ import Foundation
 
 enum PDateFormat: String {
     case longFormat =  "MMM d yyyy, HH:mm"
+    case dateFormat = "MMM d, yyyy"
+    case timeFormat = "HH:mm"
 }
 
 struct Constant {

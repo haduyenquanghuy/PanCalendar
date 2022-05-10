@@ -29,6 +29,7 @@
 		BF100FEF282808EF00E9CB8B /* PBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF100FEE282808EF00E9CB8B /* PBottomBorderTextField.swift */; };
 		BF100FF128281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF100FF028281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift */; };
 		BF100FF428295DC500E9CB8B /* TaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF100FF228295DC500E9CB8B /* TaskManager.xcdatamodeld */; };
+		BF10101C282A8FEB00E9CB8B /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10101B282A8FEB00E9CB8B /* EventManager.swift */; };
 		BF1594C9282734D10049D59C /* PHighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594C8282734D10049D59C /* PHighlightButton.swift */; };
 		BF1594CB282736950049D59C /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CA282736950049D59C /* AddEventViewController.swift */; };
 		BF1594CE2827565D0049D59C /* PBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CD2827565D0049D59C /* PBottomBorderView.swift */; };
@@ -62,6 +63,7 @@
 		BF100FEE282808EF00E9CB8B /* PBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBottomBorderTextField.swift; sourceTree = "<group>"; };
 		BF100FF028281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHideCursorBottomBorderTextField.swift; sourceTree = "<group>"; };
 		BF100FF328295DC500E9CB8B /* TaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskManager.xcdatamodel; sourceTree = "<group>"; };
+		BF10101B282A8FEB00E9CB8B /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		BF1594C8282734D10049D59C /* PHighlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHighlightButton.swift; sourceTree = "<group>"; };
 		BF1594CA282736950049D59C /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		BF1594CD2827565D0049D59C /* PBottomBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBottomBorderView.swift; sourceTree = "<group>"; };
@@ -118,7 +120,6 @@
 				BF07488F281D35B600FCBA22 /* ViewController */,
 				BF07488E281D35AB00FCBA22 /* View */,
 				BF074891281D35E600FCBA22 /* Supporting Files */,
-				BF100FF228295DC500E9CB8B /* TaskManager.xcdatamodeld */,
 				BF074888281D341200FCBA22 /* Info.plist */,
 			);
 			path = PanCalendar;
@@ -146,8 +147,8 @@
 		BF074890281D35BF00FCBA22 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BF074899281DE40B00FCBA22 /* DateTimeModel.swift */,
-				BF07489B281DE56400FCBA22 /* DateTimeManager.swift */,
+				BF10101A282A8FD300E9CB8B /* Event */,
+				BF101019282A8FC300E9CB8B /* DateTime */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +243,24 @@
 				BF100FF028281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift */,
 			);
 			path = BottomBorderTextField;
+			sourceTree = "<group>";
+		};
+		BF101019282A8FC300E9CB8B /* DateTime */ = {
+			isa = PBXGroup;
+			children = (
+				BF074899281DE40B00FCBA22 /* DateTimeModel.swift */,
+				BF07489B281DE56400FCBA22 /* DateTimeManager.swift */,
+			);
+			path = DateTime;
+			sourceTree = "<group>";
+		};
+		BF10101A282A8FD300E9CB8B /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				BF100FF228295DC500E9CB8B /* TaskManager.xcdatamodeld */,
+				BF10101B282A8FEB00E9CB8B /* EventManager.swift */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		BF1594C7282734B80049D59C /* HighlightButton */ = {
@@ -396,6 +415,7 @@
 				BF0748AF281F3E6B00FCBA22 /* CalendarFooterReusableView.swift in Sources */,
 				BF07487F281D341000FCBA22 /* CalendarViewController.swift in Sources */,
 				BF0748AA281F3B4300FCBA22 /* PHexColor.swift in Sources */,
+				BF10101C282A8FEB00E9CB8B /* EventManager.swift in Sources */,
 				BF0748DB28256ABB00FCBA22 /* PanCornerButton.swift in Sources */,
 				BF100FEF282808EF00E9CB8B /* PBottomBorderTextField.swift in Sources */,
 				BF100FF128281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift in Sources */,

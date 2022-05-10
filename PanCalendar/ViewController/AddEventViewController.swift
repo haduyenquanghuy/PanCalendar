@@ -57,8 +57,8 @@ class AddEventViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.isHidden = false
+        
         scrollView.contentSize = CGSize(width: 0, height: self.stackView.frame.height + Constant.extraSpaceToScroll)
-        //        addUser()
     }
     
     
@@ -140,9 +140,8 @@ class AddEventViewController: UIViewController {
     //MARK: - Core Data
     
     func saveEvent() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
+       
+        let managedContext = EventManager.shared.getManagerContext()
         
         let entity = NSEntityDescription.entity(forEntityName: "Event", in: managedContext)!
         let event = NSManagedObject(entity: entity, insertInto: managedContext) as! Event
@@ -150,7 +149,7 @@ class AddEventViewController: UIViewController {
         guard let title = titleTextField.text,
               let startTime = startTimeTextField.text,
               let endTime = endTimeTextField.text,
-              let color = defaultChosenColorButton.backgroundColor?.hexValue()
+              let color = lastChosenColor?.backgroundColor?.hexValue()
         else { return }
         
         event.title = title
@@ -163,11 +162,9 @@ class AddEventViewController: UIViewController {
             event.information = description
         }
         
-        do {
-            try managedContext.save()
-        } catch {
-            print("Could not save event!. \(error), \(error.localizedDescription)")
-        }
+        EventManager.shared.save()
+        
+        navigationController?.popViewController(animated: true)
     }
 }
 //MARK: - UITextFieldDelegate
