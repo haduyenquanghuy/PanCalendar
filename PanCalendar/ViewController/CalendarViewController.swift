@@ -243,6 +243,8 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: - UITableViewDataSource
+
 extension CalendarViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -257,5 +259,32 @@ extension CalendarViewController: UITableViewDataSource {
         
         return cell
     }
+}
+
+//MARK: - UITableViewDelegate
+
+extension CalendarViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = UIColor.init(rgb: 0x39393A, a: 0.75)
+        header.textLabel?.font = UIFont(name: "Gill Sans", size: 20.0)
+        header.textLabel?.textAlignment = .left
+        var text = "Today"
+        if let chosenItem = chosenItem {
+            if !dates[chosenItem.row].isToday {
+                text = dates[chosenItem.row].longDateLabel
+            }
+            
+        } else if let chosenDate = chosenDate {
+            if !Calendar.current.isDateInToday(chosenDate) {
+                text = Common.convertDate(chosenDate, with: .dateFormat)
+            }
+        }
+        header.textLabel?.text = "\(text) 's events"
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 18
+    }
 }

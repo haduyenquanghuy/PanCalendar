@@ -13,12 +13,14 @@ struct DateTimeModel {
     var shortDateLabel: String {
         let shortFormatter = DateFormatter()
         shortFormatter.dateFormat = "dd"
+        shortFormatter.locale = Locale(identifier: "en_US_POSIX")
         return shortFormatter.string(from: currentDate)
     }
     
     var longDateLabel: String {
         let longFormatter = DateFormatter()
         longFormatter.dateFormat = "MMM d, yyyy"
+        longFormatter.locale = Locale(identifier: "en_US_POSIX")
         return longFormatter.string(from: currentDate)
     }
     
