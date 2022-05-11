@@ -9,7 +9,12 @@ import UIKit
 import CoreData
 import ChameleonFramework
 
-enum eventCellType: String {
+protocol EventCellDelegate {
+    
+    func editItem(at pos: Int)
+}
+
+enum EventCellType: String {
     case important = "Important"
     case basic = "Basic"
     case urgent = "Urgent"
@@ -33,10 +38,11 @@ class EventTableViewCell: UITableViewCell {
     
     @IBOutlet weak var endTime: PanIconLabel!
     
+    var delegate: EventCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         mainView.layer.cornerRadius = 8.0
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -54,9 +60,9 @@ class EventTableViewCell: UITableViewCell {
         
         typeButton.setTitle(typeInfo, for: [])
         
-        if typeInfo == eventCellType.basic.rawValue {
+        if typeInfo == EventCellType.basic.rawValue {
             color = color?.lighten(byPercentage: 25/100)
-        } else if typeInfo == eventCellType.important.rawValue {
+        } else if typeInfo == EventCellType.important.rawValue {
             color = color?.darken(byPercentage: 25/100)
         }
         
@@ -88,5 +94,12 @@ class EventTableViewCell: UITableViewCell {
         endDate.image = calendarImage
         endTime.image = clockImage
     }
+    
+    @IBAction func pressEdit(_ sender: Any) {
+        if let delegate = delegate {
+            delegate.editItem(at: tag)
+        }
+    }
+    
     
 }

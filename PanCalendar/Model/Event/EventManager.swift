@@ -68,6 +68,7 @@ struct EventManager {
     @discardableResult func save() -> Bool {
         do {
             try managedContext.save()
+            
         } catch {
             print("Could not save event!. \(error), \(error.localizedDescription)")
             return false
@@ -80,6 +81,11 @@ struct EventManager {
         for event in events {
             managedContext.delete(event)
         }
+        save()
+    }
+    
+    func delete(_ event: Event){
+        managedContext.delete(event)
         save()
     }
     

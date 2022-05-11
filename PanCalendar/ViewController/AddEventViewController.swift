@@ -30,6 +30,8 @@ class AddEventViewController: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
     
+    var event: Event?
+    
     var lastChosenColor: UIButton?
     
     let datePicker = UIDatePicker()
@@ -47,11 +49,11 @@ class AddEventViewController: UIViewController {
         titleTextField.delegate = self
         
         titleTextField.addTarget(self, action: #selector(textFieldDidChange(textField: )), for: UIControl.Event.editingChanged)
-        
-        let currentDate = Date()
-        startTimeTextField.text = Common.convertDate(currentDate, with: PDateFormat.longFormat)
-        endTimeTextField.text = Common.convertDate(currentDate.addingTimeInterval(60), with: PDateFormat.longFormat)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showDefaultUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,7 +62,6 @@ class AddEventViewController: UIViewController {
         
         scrollView.contentSize = CGSize(width: 0, height: self.stackView.frame.height + Constant.extraSpaceToScroll)
     }
-    
     
     func createDatePicker(with textField: UITextField) {
         let toolbar = UIToolbar()
@@ -81,10 +82,24 @@ class AddEventViewController: UIViewController {
         datePicker.datePickerMode = .dateAndTime
     }
     
+    func showDefaultUI() {
+        if let event = event {
+            titleTextField.text = event.title!
+            descriptionTextField.text = event.information ?? ""
+//            if
+            startTimeTextField.text = Common.convertDate(event.startTime!, with: PDateFormat.longFormat)
+            endTimeTextField.text = Common.convertDate(event.endTime!, with: PDateFormat.longFormat)
+        } else {
+            let currentDate = Date()
+            startTimeTextField.text = Common.convertDate(currentDate, with: PDateFormat.longFormat)
+            endTimeTextField.text = Common.convertDate(currentDate.addingTimeInterval(60), with: PDateFormat.longFormat)
+        }
+    }
+    
     //MARK: - Action Handler
     
     @IBAction func pressSave(_ sender: Any) {
-        saveEvent()
+        save(with: event)
     }
     
     @objc func donePressed() {
@@ -137,15 +152,28 @@ class AddEventViewController: UIViewController {
         lastChosenColor = sender
     }
     
+    @IBAction func pressDelete(_ sender: UIBarButtonItem) {
+        if let event = event {
+            let title = event.title!
+            EventManager.shared.delete(event)
+            navigationController?.viewControllers[0].view.makeToast("Deleted event with title: \(title)", duration: 3.0, position: .bottom, style:ToastStyle())
+        }
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
+    
     //MARK: - Core Data
     
-    func saveEvent() {
-       
-        let managedContext = EventManager.shared.getManagerContext()
-        
-        let entity = NSEntityDescription.entity(forEntityName: "Event", in: managedContext)!
-        let event = NSManagedObject(entity: entity, insertInto: managedContext) as! Event
-        
+    func save(with currentEvent: Event? = nil) {
+        var event: Event
+        if currentEvent != nil {
+            event = currentEvent!
+        } else {
+            let managedContext = EventManager.shared.getManagerContext()
+            let entity = NSEntityDescription.entity(forEntityName: "Event", in: managedContext)!
+            event = NSManagedObject(entity: entity, insertInto: managedContext) as! Event
+        }
         guard let title = titleTextField.text,
               let startTime = startTimeTextField.text,
               let endTime = endTimeTextField.text,

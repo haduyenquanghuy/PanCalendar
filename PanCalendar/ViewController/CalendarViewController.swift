@@ -56,7 +56,13 @@ class CalendarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        events = EventManager.shared.loadEvents(by: Date())
+        var currentDate = Date()
+        if let chosenItem = chosenItem {
+            currentDate = dates[chosenItem.row].currentDate
+        } else if let chosenDate = chosenDate {
+            currentDate = chosenDate
+        }
+        events = EventManager.shared.loadEvents(by: currentDate)
         eventTableView.reloadData()
     }
     
@@ -86,12 +92,6 @@ class CalendarViewController: UIViewController {
         swipeGestureRecognizer.direction = direction
         
         return swipeGestureRecognizer
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToAddEvent" {
-//            print("abcdd")
-        }
     }
     
     //MARK: - Action Handler
@@ -255,7 +255,10 @@ extension CalendarViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
         
         let eventIndex = events[indexPath.row]
+        
+        cell.delegate = self
         cell.configUI(with: eventIndex)
+        cell.tag = indexPath.row
         
         return cell
     }
@@ -286,5 +289,16 @@ extension CalendarViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 18
+    }
+}
+
+//MARK: - EventTableViewCellDelegate
+
+extension CalendarViewController: EventCellDelegate {
+    
+    func editItem(at pos: Int) {
+        let addItemVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddEventViewController") as! AddEventViewController
+        addItemVC.event = events[pos]
+        navigationController?.pushViewController(addItemVC, animated: true)
     }
 }

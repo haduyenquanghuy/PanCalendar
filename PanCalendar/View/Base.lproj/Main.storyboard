@@ -676,6 +676,9 @@
                     <navigationItem key="navigationItem" title="Add Task" id="MvG-NB-PtL">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="spn-g8-VIN">
                             <color key="tintColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="pressDelete:" destination="nl9-MS-FyC" id="cvg-12-Y83"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
