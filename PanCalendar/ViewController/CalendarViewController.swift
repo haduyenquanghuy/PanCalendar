@@ -239,7 +239,7 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
         if section == SectionType.dateSection.rawValue {
             return CGSize(width: calendarView.frame.width, height: 16)
         }
-        return CGSize(width: calendarView.frame.width, height: 1)
+        return CGSize(width: calendarView.frame.width, height: 2)
     }
 }
 

@@ -15,7 +15,7 @@ protocol EventCellDelegate {
 }
 
 class EventTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var typeButton: UIButton!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -44,10 +44,10 @@ class EventTableViewCell: UITableViewCell {
         super.awakeFromNib()
         mainView.layer.cornerRadius = 8.0
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -61,9 +61,9 @@ class EventTableViewCell: UITableViewCell {
         typeButton.setTitle(EventTableViewCell.eventTypes[typeInfo]!, for: [])
         
         if typeInfo == 0 {
-            color = color?.lighten(byPercentage: 25/100)
-        } else if typeInfo == 1 {
-            color = color?.darken(byPercentage: 25/100)
+            color = color?.lighten(byPercentage: 15/100)
+        } else if typeInfo == 2 {
+            color = color?.darken(byPercentage: 15/100)
         }
         
         mainView.backgroundColor = color
@@ -93,6 +93,10 @@ class EventTableViewCell: UITableViewCell {
         
         endDate.image = calendarImage
         endTime.image = clockImage
+        
+        let isExpiredEvent = endEventTime < Date()
+        setAllComponent(isExpiredEvent)
+        
     }
     
     @IBAction func pressEdit(_ sender: Any) {
@@ -101,5 +105,10 @@ class EventTableViewCell: UITableViewCell {
         }
     }
     
+    func setAllComponent(_ isStrikeThrough: Bool) {
+        
+        titleLabel.strikeThrough(isStrikeThrough)
+        descriptionLabel.strikeThrough(isStrikeThrough)
+    }
     
 }

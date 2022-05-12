@@ -18,8 +18,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="391" height="103"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iob-aJ-njM" userLabel="UnderLine">
-                            <rect key="frame" x="0.0" y="102" width="391" height="1"/>
-                            <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="0.0" y="101" width="391" height="1"/>
+                            <color key="backgroundColor" systemColor="separatorColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="VMt-SO-aMS" userLabel="height = 5"/>
                             </constraints>
@@ -28,7 +28,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="iob-aJ-njM" firstAttribute="leading" secondItem="laE-Pd-jDn" secondAttribute="leading" id="4Nc-95-6YI"/>
-                        <constraint firstAttribute="bottom" secondItem="iob-aJ-njM" secondAttribute="bottom" id="Fby-AC-Rxh"/>
+                        <constraint firstAttribute="bottom" secondItem="iob-aJ-njM" secondAttribute="bottom" constant="1" id="Fby-AC-Rxh"/>
                         <constraint firstAttribute="trailing" secondItem="iob-aJ-njM" secondAttribute="trailing" id="rXE-6G-62s"/>
                     </constraints>
                 </view>
@@ -44,6 +44,9 @@
         </collectionReusableView>
     </objects>
     <resources>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -33,6 +33,7 @@
 		BF1594C9282734D10049D59C /* PHighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594C8282734D10049D59C /* PHighlightButton.swift */; };
 		BF1594CB282736950049D59C /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CA282736950049D59C /* AddEventViewController.swift */; };
 		BF1594CE2827565D0049D59C /* PBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CD2827565D0049D59C /* PBottomBorderView.swift */; };
+		BF83B22D282C98E9006F694C /* PStrikethroughLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF83B22C282C98E9006F694C /* PStrikethroughLabel.swift */; };
 		CC64AB6A716A2F6CC62B5D4D /* Pods_PanCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9821589F1FC83F990FE7724D /* Pods_PanCalendar.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		BF1594C8282734D10049D59C /* PHighlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHighlightButton.swift; sourceTree = "<group>"; };
 		BF1594CA282736950049D59C /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		BF1594CD2827565D0049D59C /* PBottomBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBottomBorderView.swift; sourceTree = "<group>"; };
+		BF83B22C282C98E9006F694C /* PStrikethroughLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PStrikethroughLabel.swift; sourceTree = "<group>"; };
 		D605597C067ECADDD635EB38 /* Pods-PanCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanCalendar.release.xcconfig"; path = "Target Support Files/Pods-PanCalendar/Pods-PanCalendar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +201,7 @@
 			children = (
 				BF07489D281DEC3E00FCBA22 /* PDate.swift */,
 				BF0748A9281F3B4300FCBA22 /* PHexColor.swift */,
+				BF83B22C282C98E9006F694C /* PStrikethroughLabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				BF07487F281D341000FCBA22 /* CalendarViewController.swift in Sources */,
 				BF0748AA281F3B4300FCBA22 /* PHexColor.swift in Sources */,
 				BF10101C282A8FEB00E9CB8B /* EventManager.swift in Sources */,
+				BF83B22D282C98E9006F694C /* PStrikethroughLabel.swift in Sources */,
 				BF0748DB28256ABB00FCBA22 /* PanCornerButton.swift in Sources */,
 				BF100FEF282808EF00E9CB8B /* PBottomBorderTextField.swift in Sources */,
 				BF100FF128281CE200E9CB8B /* PHideCursorBottomBorderTextField.swift in Sources */,
