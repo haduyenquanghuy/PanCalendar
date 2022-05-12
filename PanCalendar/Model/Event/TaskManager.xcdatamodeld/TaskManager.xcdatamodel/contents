@@ -4,11 +4,12 @@
         <attribute name="color" attributeType="String"/>
         <attribute name="endTime" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="information" optional="YES" attributeType="String"/>
+        <attribute name="isEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="startTime" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
-        <attribute name="type" attributeType="String"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Event" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>

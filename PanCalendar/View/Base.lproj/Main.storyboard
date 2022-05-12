@@ -214,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="80.357142857142847"/>
         </scene>
-        <!--Add Task-->
+        <!--Add Event-->
         <scene sceneID="yWD-lI-dzF">
             <objects>
                 <viewController storyboardIdentifier="AddEventViewController" id="nl9-MS-FyC" customClass="AddEventViewController" customModule="PanCalendar" customModuleProvider="target" sceneMemberID="viewController">
@@ -400,7 +400,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EpD-6R-ZMJ">
                                                                 <rect key="frame" x="40" y="48" width="310" height="30"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dz7-tz-zL9" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dz7-tz-zL9" userLabel="Button_1" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.92156862745098034" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
@@ -409,7 +409,7 @@
                                                                         </constraints>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" image="sparkles" catalog="system"/>
+                                                                        <buttonConfiguration key="configuration" style="plain"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rounded">
                                                                                 <real key="value" value="15"/>
@@ -419,7 +419,7 @@
                                                                             <action selector="didChosenColor:" destination="nl9-MS-FyC" eventType="touchUpInside" id="7UE-OT-QfS"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-UW-4vI" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-UW-4vI" userLabel="Button_2" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.97647058823529409" green="0.85098039215686272" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
@@ -437,7 +437,7 @@
                                                                             <action selector="didChosenColor:" destination="nl9-MS-FyC" eventType="touchUpInside" id="zAA-T4-B0d"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R6-uS-ZoH" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R6-uS-ZoH" userLabel="Button_3" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="80" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.23921568627450979" green="0.69803921568627447" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
@@ -455,7 +455,7 @@
                                                                             <action selector="didChosenColor:" destination="nl9-MS-FyC" eventType="touchUpInside" id="3ck-ur-wXf"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOY-CD-LfV" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOY-CD-LfV" userLabel="Button_4" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="120" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.21176470588235294" green="0.68235294117647061" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
@@ -473,7 +473,7 @@
                                                                             <action selector="didChosenColor:" destination="nl9-MS-FyC" eventType="touchUpInside" id="PgF-Dx-ntd"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jm9-Ym-UuC" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jm9-Ym-UuC" userLabel="Button_5" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="160" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.094117647058823528" green="0.45490196078431372" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
@@ -491,7 +491,7 @@
                                                                             <action selector="didChosenColor:" destination="nl9-MS-FyC" eventType="touchUpInside" id="EJe-mx-9Hj"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBz-5M-etq" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBz-5M-etq" userLabel="Button_6" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="200" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.70980392156862748" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
@@ -509,7 +509,7 @@
                                                                             <action selector="didChosenColor:" destination="nl9-MS-FyC" eventType="touchUpInside" id="93f-rO-9a9"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-eX-tv6" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-eX-tv6" userLabel="Button_7" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="240" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="1" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
@@ -527,7 +527,7 @@
                                                                             <action selector="didChosenColor:" destination="nl9-MS-FyC" eventType="touchUpInside" id="wAN-Ik-MjE"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGJ-tQ-hLd" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGJ-tQ-hLd" userLabel="Button_8" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="280" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.95294117647058818" green="0.54509803921568623" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
@@ -641,7 +641,7 @@
                                     <constraint firstItem="znp-yI-p7f" firstAttribute="centerX" secondItem="hBD-Im-WKJ" secondAttribute="centerX" id="qn9-vx-kyh"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fP-eJ-4q7" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fP-eJ-4q7" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                 <rect key="frame" x="25" y="812" width="364" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.52156862749999999" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -673,7 +673,7 @@
                             <constraint firstItem="hBD-Im-WKJ" firstAttribute="top" secondItem="uhg-T8-VQe" secondAttribute="top" id="vpF-QR-9QS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Task" id="MvG-NB-PtL">
+                    <navigationItem key="navigationItem" title="Add Event" id="MvG-NB-PtL">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="spn-g8-VIN">
                             <color key="tintColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -682,15 +682,23 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="defaultChosenColorButton" destination="dz7-tz-zL9" id="YpR-sC-w56"/>
                         <outlet property="descriptionTextField" destination="TYo-Oq-ubO" id="474-aZ-BnD"/>
                         <outlet property="endTimeTextField" destination="CPh-Ux-won" id="gn5-3v-GWM"/>
+                        <outlet property="notificationSegment" destination="QTF-tr-tZh" id="btW-N6-Wdc"/>
                         <outlet property="saveButton" destination="1fP-eJ-4q7" id="25q-vN-yO6"/>
                         <outlet property="scrollView" destination="hBD-Im-WKJ" id="N5M-fT-bCq"/>
                         <outlet property="stackView" destination="4ng-L5-5xl" id="pGe-CF-ld3"/>
                         <outlet property="startTimeTextField" destination="QHg-FO-WxO" id="0VA-Yp-bFb"/>
                         <outlet property="titleTextField" destination="OQa-ld-STz" id="sfJ-Le-QH2"/>
                         <outlet property="typeEventSegment" destination="WuP-5V-kZI" id="CHe-WH-w89"/>
+                        <outletCollection property="chosenColorButtons" destination="dz7-tz-zL9" collectionClass="NSMutableArray" id="YHQ-7p-dhS"/>
+                        <outletCollection property="chosenColorButtons" destination="Nzw-UW-4vI" collectionClass="NSMutableArray" id="3Ad-mp-pZO"/>
+                        <outletCollection property="chosenColorButtons" destination="1R6-uS-ZoH" collectionClass="NSMutableArray" id="CWF-5e-Hge"/>
+                        <outletCollection property="chosenColorButtons" destination="TOY-CD-LfV" collectionClass="NSMutableArray" id="zAa-ag-mVR"/>
+                        <outletCollection property="chosenColorButtons" destination="Jm9-Ym-UuC" collectionClass="NSMutableArray" id="ufD-ID-sVJ"/>
+                        <outletCollection property="chosenColorButtons" destination="TBz-5M-etq" collectionClass="NSMutableArray" id="flH-1p-G3t"/>
+                        <outletCollection property="chosenColorButtons" destination="yXm-eX-tv6" collectionClass="NSMutableArray" id="xVU-U2-29R"/>
+                        <outletCollection property="chosenColorButtons" destination="oGJ-tQ-hLd" collectionClass="NSMutableArray" id="YQB-bF-pPD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxA-12-xe0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -763,7 +771,7 @@
             <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="dz7-tz-zL9">
-            <size key="intrinsicContentSize" width="44.5" height="31"/>
+            <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="oGJ-tQ-hLd">
             <size key="intrinsicContentSize" width="24" height="14"/>
@@ -776,7 +784,6 @@
         <image name="add_symbol" width="30" height="30"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="sparkles" catalog="system" width="112" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -26,7 +26,9 @@ class AddEventViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var defaultChosenColorButton: UIButton!
+    @IBOutlet weak var notificationSegment: UISegmentedControl!
+    
+    @IBOutlet var chosenColorButtons: [PanCornerButton]!
     
     @IBOutlet weak var stackView: UIStackView!
     
@@ -43,7 +45,8 @@ class AddEventViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         createDatePicker(with: startTimeTextField)
         createDatePicker(with: endTimeTextField)
-        lastChosenColor = defaultChosenColorButton
+        
+        chosenColorButtons.sort { $0.frame.origin.x  < $1.frame.origin.x }
         
         descriptionTextField.delegate = self
         titleTextField.delegate = self
@@ -58,7 +61,6 @@ class AddEventViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.isHidden = false
         
         scrollView.contentSize = CGSize(width: 0, height: self.stackView.frame.height + Constant.extraSpaceToScroll)
     }
@@ -84,15 +86,23 @@ class AddEventViewController: UIViewController {
     
     func showDefaultUI() {
         if let event = event {
+            self.title = "Edit Event"
             titleTextField.text = event.title!
             descriptionTextField.text = event.information ?? ""
-//            if
             startTimeTextField.text = Common.convertDate(event.startTime!, with: PDateFormat.longFormat)
             endTimeTextField.text = Common.convertDate(event.endTime!, with: PDateFormat.longFormat)
+            didChosenColor(findButton(by: event.color!))
+            notificationSegment.selectedSegmentIndex = event.isEnabled ? 0 : 1
+            typeEventSegment.selectedSegmentIndex = Int(event.type)
+            saveButton.isEnabled = true
         } else {
+            self.title = "Add Event"
             let currentDate = Date()
             startTimeTextField.text = Common.convertDate(currentDate, with: PDateFormat.longFormat)
             endTimeTextField.text = Common.convertDate(currentDate.addingTimeInterval(60), with: PDateFormat.longFormat)
+            didChosenColor(findButton())
+            saveButton.isEnabled = false
+            navigationItem.rightBarButtonItem = nil
         }
     }
     
@@ -132,7 +142,6 @@ class AddEventViewController: UIViewController {
         if textField == titleTextField, let text = textField.text {
             let isTextFieldEmpty = text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
             saveButton.isEnabled = !isTextFieldEmpty
-            saveButton.alpha = isTextFieldEmpty ? 0.85 : 1.0
         }
     }
     
@@ -159,7 +168,17 @@ class AddEventViewController: UIViewController {
             navigationController?.viewControllers[0].view.makeToast("Deleted event with title: \(title)", duration: 3.0, position: .bottom, style:ToastStyle())
         }
         navigationController?.popViewController(animated: true)
-        
+    }
+    
+    func findButton(by hexColor: String? = nil) -> UIButton {
+        if let hexColor = hexColor {
+            for button in chosenColorButtons {
+                if hexColor == button.backgroundColor?.hexValue() {
+                    return button
+                }
+            }
+        }
+        return chosenColorButtons[0]
     }
     
     
@@ -184,7 +203,8 @@ class AddEventViewController: UIViewController {
         event.startTime = Common.convertDate(startTime, with: .longFormat)
         event.endTime = Common.convertDate(endTime, with: .longFormat)
         event.color = color
-        event.type = typeEventSegment.titleForSegment(at: typeEventSegment.selectedSegmentIndex)
+        event.type = Int16(typeEventSegment.selectedSegmentIndex)
+        event.isEnabled = notificationSegment.selectedSegmentIndex == 0
         
         if let description = descriptionTextField.text {
             event.information = description

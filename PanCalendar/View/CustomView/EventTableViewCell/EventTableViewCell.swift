@@ -14,12 +14,6 @@ protocol EventCellDelegate {
     func editItem(at pos: Int)
 }
 
-enum EventCellType: String {
-    case important = "Important"
-    case basic = "Basic"
-    case urgent = "Urgent"
-}
-
 class EventTableViewCell: UITableViewCell {
 
     @IBOutlet weak var typeButton: UIButton!
@@ -37,6 +31,12 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var endDate: PanIconLabel!
     
     @IBOutlet weak var endTime: PanIconLabel!
+    
+    static let eventTypes = [
+        0 : "Basic",
+        1 : "Urgent",
+        2 : "Important",
+    ]
     
     var delegate: EventCellDelegate?
     
@@ -56,13 +56,13 @@ class EventTableViewCell: UITableViewCell {
         
         titleLabel.text = event.title!
         
-        let typeInfo = event.type!
+        let typeInfo = Int(event.type)
         
-        typeButton.setTitle(typeInfo, for: [])
+        typeButton.setTitle(EventTableViewCell.eventTypes[typeInfo]!, for: [])
         
-        if typeInfo == EventCellType.basic.rawValue {
+        if typeInfo == 0 {
             color = color?.lighten(byPercentage: 25/100)
-        } else if typeInfo == EventCellType.important.rawValue {
+        } else if typeInfo == 1 {
             color = color?.darken(byPercentage: 25/100)
         }
         
