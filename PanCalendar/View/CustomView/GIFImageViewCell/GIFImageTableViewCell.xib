@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GIFImageTableViewCell" rowHeight="347" id="KGk-i7-Jjw" customClass="GIFImageTableViewCell" customModule="PanCalendar" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="454" height="347"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="454" height="347"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qaf-D5-T0O" customClass="GIFImageView" customModule="Gifu">
+                        <rect key="frame" x="8" y="16.5" width="438" height="314"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="qaf-D5-T0O" secondAttribute="height" multiplier="454:325" id="Pdn-jz-LAL"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qaf-D5-T0O" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" constant="-16" id="140-rT-lIG"/>
+                    <constraint firstItem="qaf-D5-T0O" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="GMC-QL-QJe"/>
+                    <constraint firstItem="qaf-D5-T0O" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ePY-Sw-TnH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="gifImageView" destination="qaf-D5-T0O" id="ivq-eI-5G9"/>
+            </connections>
+            <point key="canvasLocation" x="234.78260869565219" y="94.754464285714278"/>
+        </tableViewCell>
+    </objects>
+</document>

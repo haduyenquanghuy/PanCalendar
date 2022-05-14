@@ -43,7 +43,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     
     func refreshUI() {
         contentView.layer.cornerRadius = 0
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .clear
         isUserInteractionEnabled = true
         contentLabel.font = UIFont(name: "Gill Sans", size: 18.0)
         contentLabel.textColor = UIColor(rgb: 0x39393A)

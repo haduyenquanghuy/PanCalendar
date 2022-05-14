@@ -52,6 +52,9 @@ class EventTableViewCell: UITableViewCell {
     }
     
     func configUI(with event: Event) {
+        
+        setAllComponent(false)
+        
         var color = UIColor.init(hexString: event.color!)
         
         titleLabel.text = event.title!
@@ -94,9 +97,7 @@ class EventTableViewCell: UITableViewCell {
         endDate.image = calendarImage
         endTime.image = clockImage
         
-        let isExpiredEvent = endEventTime < Date()
-        setAllComponent(isExpiredEvent)
-        
+        setAllComponent(endEventTime < Date())
     }
     
     @IBAction func pressEdit(_ sender: Any) {

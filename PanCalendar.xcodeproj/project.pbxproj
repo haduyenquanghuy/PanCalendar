@@ -34,6 +34,9 @@
 		BF1594CB282736950049D59C /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CA282736950049D59C /* AddEventViewController.swift */; };
 		BF1594CE2827565D0049D59C /* PBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1594CD2827565D0049D59C /* PBottomBorderView.swift */; };
 		BF83B22D282C98E9006F694C /* PStrikethroughLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF83B22C282C98E9006F694C /* PStrikethroughLabel.swift */; };
+		BF83B256282D4628006F694C /* GIFImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF83B254282D4628006F694C /* GIFImageTableViewCell.swift */; };
+		BF83B257282D4628006F694C /* GIFImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF83B255282D4628006F694C /* GIFImageTableViewCell.xib */; };
+		BF83B259282D4796006F694C /* no-data.gif in Resources */ = {isa = PBXBuildFile; fileRef = BF83B258282D4796006F694C /* no-data.gif */; };
 		CC64AB6A716A2F6CC62B5D4D /* Pods_PanCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9821589F1FC83F990FE7724D /* Pods_PanCalendar.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +72,9 @@
 		BF1594CA282736950049D59C /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		BF1594CD2827565D0049D59C /* PBottomBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBottomBorderView.swift; sourceTree = "<group>"; };
 		BF83B22C282C98E9006F694C /* PStrikethroughLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PStrikethroughLabel.swift; sourceTree = "<group>"; };
+		BF83B254282D4628006F694C /* GIFImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFImageTableViewCell.swift; sourceTree = "<group>"; };
+		BF83B255282D4628006F694C /* GIFImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GIFImageTableViewCell.xib; sourceTree = "<group>"; };
+		BF83B258282D4796006F694C /* no-data.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "no-data.gif"; sourceTree = "<group>"; };
 		D605597C067ECADDD635EB38 /* Pods-PanCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanCalendar.release.xcconfig"; path = "Target Support Files/Pods-PanCalendar/Pods-PanCalendar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +164,7 @@
 		BF074891281D35E600FCBA22 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BF83B258282D4796006F694C /* no-data.gif */,
 				BF074883281D341200FCBA22 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
@@ -166,6 +173,7 @@
 		BF074892281D362000FCBA22 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				BF83B253282D45E8006F694C /* GIFImageViewCell */,
 				BF100FED2828089C00E9CB8B /* BottomBorderTextField */,
 				BF1594CC282756340049D59C /* BottomBorderView */,
 				BF1594C7282734B80049D59C /* HighlightButton */,
@@ -282,6 +290,15 @@
 			path = BottomBorderView;
 			sourceTree = "<group>";
 		};
+		BF83B253282D45E8006F694C /* GIFImageViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF83B254282D4628006F694C /* GIFImageTableViewCell.swift */,
+				BF83B255282D4628006F694C /* GIFImageTableViewCell.xib */,
+			);
+			path = GIFImageViewCell;
+			sourceTree = "<group>";
+		};
 		FFA52BF309E785D4C7C67B33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +369,8 @@
 			files = (
 				BF0748D82825687000FCBA22 /* EventTableViewCell.xib in Resources */,
 				BF074897281D36BE00FCBA22 /* CalendarCollectionViewCell.xib in Resources */,
+				BF83B257282D4628006F694C /* GIFImageTableViewCell.xib in Resources */,
+				BF83B259282D4796006F694C /* no-data.gif in Resources */,
 				BF074887281D341200FCBA22 /* LaunchScreen.storyboard in Resources */,
 				BF0748B0281F3E6B00FCBA22 /* CalendarFooterReusableView.xib in Resources */,
 				BF074884281D341200FCBA22 /* Assets.xcassets in Resources */,
@@ -410,6 +429,7 @@
 			files = (
 				BF1594CE2827565D0049D59C /* PBottomBorderView.swift in Sources */,
 				BF100FF428295DC500E9CB8B /* TaskManager.xcdatamodeld in Sources */,
+				BF83B256282D4628006F694C /* GIFImageTableViewCell.swift in Sources */,
 				BF074896281D36BE00FCBA22 /* CalendarCollectionViewCell.swift in Sources */,
 				BF1594CB282736950049D59C /* AddEventViewController.swift in Sources */,
 				BF0748E02825C04000FCBA22 /* PanIconLabel.swift in Sources */,

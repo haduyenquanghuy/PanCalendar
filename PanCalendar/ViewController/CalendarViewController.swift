@@ -45,6 +45,7 @@ class CalendarViewController: UIViewController {
         calendarView.register(CalendarCollectionViewCell.nib(), forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
         calendarView.register(CalendarFooterReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CalendarFooterReusableView.identifier)
         eventTableView.register(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventTableViewCell")
+        eventTableView.register(UINib(nibName: "GIFImageTableViewCell", bundle: nil), forCellReuseIdentifier: "GIFImageTableViewCell")
         dates = dateTimeManager.dates
         monthLabel.text = dateTimeManager.currentMonthText
         weekdays = Calendar(identifier: .iso8601).weekdaySymbols.map { $0.uppercased() }
@@ -248,19 +249,32 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
 extension CalendarViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return events.isEmpty ? 1 : events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
         
-        let eventIndex = events[indexPath.row]
-        
-        cell.delegate = self
-        cell.configUI(with: eventIndex)
-        cell.tag = indexPath.row
-        
+        if !events.isEmpty {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
+            
+            let eventIndex = events[indexPath.row]
+            
+            cell.delegate = self
+            cell.configUI(with: eventIndex)
+            cell.tag = indexPath.row
+            
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GIFImageTableViewCell", for: indexPath) as! GIFImageTableViewCell
+        cell.gifImageView.startAnimatingGIF()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if events.isEmpty {
+            return 325
+        }
+        return UITableView.automaticDimension
     }
 }
 

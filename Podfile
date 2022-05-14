@@ -13,4 +13,6 @@ pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chamel
 
 pod 'Toast-Swift', '~> 5.0.0'
 
+pod 'Gifu'
+
 end
