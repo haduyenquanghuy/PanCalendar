@@ -64,7 +64,7 @@ class EventTableViewCell: UITableViewCell {
         typeButton.setTitle(EventTableViewCell.eventTypes[typeInfo]!, for: [])
         
         if typeInfo == 0 {
-            color = color?.lighten(byPercentage: 15/100)
+            color = color?.lighten(byPercentage: 45/100)
         } else if typeInfo == 2 {
             color = color?.darken(byPercentage: 15/100)
         }

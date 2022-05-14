@@ -38,15 +38,14 @@ struct EventManager {
         }
         return result
     }
-
-    func loadEvents(by date: Date) -> [Event] {
+    
+    func loadEvents(by date: Date, with chosenDate: Bool) -> [Event] {
         
         var result = [Event]()
-        let calendar = Calendar.current
-        let dateFrom = calendar.startOfDay(for: date)
-        let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)!
+        let dateFrom = chosenDate ? date.startOfDay() : date.startOfMonth()
+        let dateTo = chosenDate ? date.endOfDay() : date.endOfMonth()
         
-        let sameDatePredicate = NSPredicate(format: "startTime < %@ AND endTime >= %@ ", dateTo as NSDate,  dateFrom as NSDate)
+        let sameDatePredicate = NSPredicate(format: "startTime <= %@ AND endTime >= %@ ", dateTo as NSDate,  dateFrom as NSDate)
         
         fetchRequest.predicate = sameDatePredicate
         

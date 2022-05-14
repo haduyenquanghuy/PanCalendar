@@ -22,6 +22,10 @@ class CalendarViewController: UIViewController {
     var chosenItem: IndexPath?
     var chosenDate: Date?
     
+    var isChosenDate: Bool {
+        return chosenItem != nil || chosenDate != nil
+    }
+    
     @IBOutlet weak var addButton: PHighlightButton!
     
     @IBOutlet weak var calendarViewHeight: NSLayoutConstraint!
@@ -47,11 +51,12 @@ class CalendarViewController: UIViewController {
         eventTableView.register(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventTableViewCell")
         eventTableView.register(UINib(nibName: "GIFImageTableViewCell", bundle: nil), forCellReuseIdentifier: "GIFImageTableViewCell")
         dates = dateTimeManager.dates
-        monthLabel.text = dateTimeManager.currentMonthText
         weekdays = Calendar(identifier: .iso8601).weekdaySymbols.map { $0.uppercased() }
         
         calendarView.addGestureRecognizer(createSwipeGestureRecognizer(for: .left))
         calendarView.addGestureRecognizer(createSwipeGestureRecognizer(for: .right))
+        
+        monthLabel.text = Common.convertDate(Date(), with: .dateFormat)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +68,7 @@ class CalendarViewController: UIViewController {
         } else if let chosenDate = chosenDate {
             currentDate = chosenDate
         }
-        events = EventManager.shared.loadEvents(by: currentDate)
+        events = EventManager.shared.loadEvents(by: currentDate, with: isChosenDate)
         eventTableView.reloadData()
     }
     
@@ -72,16 +77,15 @@ class CalendarViewController: UIViewController {
         resetHeightCalendar()
     }
     
-    func reloadData() {
+    private func reloadData() {
         dates = dateTimeManager.dates
         calendarView.reloadSections(IndexSet(integer: SectionType.dateSection.rawValue))
-        events = EventManager.shared.loadEvents(by: dateTimeManager.currentDate)
+        events = EventManager.shared.loadEvents(by: dateTimeManager.currentDate, with: isChosenDate)
         eventTableView.reloadData()
-        monthLabel.text = dateTimeManager.currentMonthText
         resetHeightCalendar()
     }
     
-    func resetHeightCalendar() {
+    private func resetHeightCalendar() {
         let height = calendarView.collectionViewLayout.collectionViewContentSize.height
         calendarViewHeight.constant = height
         self.view.setNeedsLayout()
@@ -93,6 +97,23 @@ class CalendarViewController: UIViewController {
         swipeGestureRecognizer.direction = direction
         
         return swipeGestureRecognizer
+    }
+    
+    private func getTableHeaderContent() -> String {
+        var currentDate: Date?
+        if let chosenItem = chosenItem {
+            currentDate = dates[chosenItem.row].currentDate
+        } else if chosenDate != nil {
+            currentDate = chosenDate
+        }
+        
+        if let currentDate = currentDate {
+            if Calendar.current.isDateInToday(currentDate) {
+                return "Today"
+            }
+            return Common.convertDate(currentDate, with: .dateFormat)
+        }
+        return dateTimeManager.currentMonthText
     }
     
     //MARK: - Action Handler
@@ -131,20 +152,19 @@ class CalendarViewController: UIViewController {
         } else {
             dateTimeManager = dateTimeManager.getNextMonth()
         }
-        setVarToDefaultWhenChangeMonthCalendar()
+        chosenItem = nil
+        chosenDate = nil
         reloadData()
+        monthLabel.text = dateTimeManager.currentMonthText
     }
     
     @IBAction func today(_ sender: UIButton) {
         dateTimeManager = DateTimeManager(currentDate: Date())
-        setVarToDefaultWhenChangeMonthCalendar()
-        reloadData()
-        showDatePickerView(hidden: true)
-    }
-    
-    func setVarToDefaultWhenChangeMonthCalendar() {
+        chosenDate = Date()
         chosenItem = nil
-        chosenDate = nil
+        reloadData()
+        monthLabel.text = Common.convertDate(Date(), with: .dateFormat)
+        showDatePickerView(hidden: true)
     }
 }
 
@@ -163,7 +183,7 @@ extension CalendarViewController: UICollectionViewDelegate {
             chosenItem = indexPath
             let chosenCell = calendarView.cellForItem(at: indexPath) as? CalendarCollectionViewCell
             chosenCell?.type = .chosen
-            events = EventManager.shared.loadEvents(by: currentDate)
+            events = EventManager.shared.loadEvents(by: currentDate, with: isChosenDate)
             eventTableView.reloadData()
         }
     }
@@ -272,7 +292,7 @@ extension CalendarViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if events.isEmpty {
-            return 325
+            return Constant.heightGIFImageCell
         }
         return UITableView.automaticDimension
     }
@@ -287,18 +307,7 @@ extension CalendarViewController: UITableViewDelegate {
         header.textLabel?.textColor = UIColor.init(rgb: 0x39393A, a: 0.75)
         header.textLabel?.font = UIFont(name: "Gill Sans", size: 20.0)
         header.textLabel?.textAlignment = .left
-        var text = "Today"
-        if let chosenItem = chosenItem {
-            if !dates[chosenItem.row].isToday {
-                text = dates[chosenItem.row].longDateLabel
-            }
-            
-        } else if let chosenDate = chosenDate {
-            if !Calendar.current.isDateInToday(chosenDate) {
-                text = Common.convertDate(chosenDate, with: .dateFormat)
-            }
-        }
-        header.textLabel?.text = "\(text) 's events"
+        header.textLabel?.text = "\(getTableHeaderContent()) 's events"
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

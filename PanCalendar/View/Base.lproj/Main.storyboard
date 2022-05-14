@@ -511,7 +511,7 @@
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-eX-tv6" userLabel="Button_7" customClass="PanCornerButton" customModule="PanCalendar" customModuleProvider="target">
                                                                         <rect key="frame" x="240" y="0.0" width="30" height="30"/>
-                                                                        <color key="backgroundColor" red="1" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <color key="backgroundColor" red="1" green="0.67843137254901964" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="yXm-eX-tv6" secondAttribute="height" id="f0M-bd-PUA"/>
                                                                         </constraints>

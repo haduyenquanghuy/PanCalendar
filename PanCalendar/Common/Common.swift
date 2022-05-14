@@ -15,6 +15,7 @@ enum PDateFormat: String {
 
 struct Constant {
     static let extraSpaceToScroll = 80.0
+    static let heightGIFImageCell = 325.0
 }
 
 struct Common {
