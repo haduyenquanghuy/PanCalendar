@@ -21,6 +21,8 @@ class CalendarViewController: UIViewController {
     var weekdays = [String]()
     var chosenItem: IndexPath?
     var chosenDate: Date?
+    var animator: Animator?
+    var isShow = true
     
     var isChosenDate: Bool {
         return chosenItem != nil || chosenDate != nil
@@ -50,13 +52,16 @@ class CalendarViewController: UIViewController {
         calendarView.register(CalendarFooterReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CalendarFooterReusableView.identifier)
         eventTableView.register(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventTableViewCell")
         eventTableView.register(UINib(nibName: "GIFImageTableViewCell", bundle: nil), forCellReuseIdentifier: "GIFImageTableViewCell")
+        eventTableView.register(CalendarTableViewHeader.self,
+              forHeaderFooterViewReuseIdentifier: "sectionHeader")
+       
         dates = dateTimeManager.dates
         weekdays = Calendar(identifier: .iso8601).weekdaySymbols.map { $0.uppercased() }
         
         calendarView.addGestureRecognizer(createSwipeGestureRecognizer(for: .left))
         calendarView.addGestureRecognizer(createSwipeGestureRecognizer(for: .right))
         
-        monthLabel.text = Common.convertDate(Date(), with: .dateFormat)
+        monthLabel.text = dateTimeManager.currentMonthText
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -269,10 +274,17 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
 extension CalendarViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if !isShow {
+            return 0
+        }
         return events.isEmpty ? 1 : events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if !isShow {
+            return UITableViewCell.init()
+        }
         
         if !events.isEmpty {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
@@ -302,12 +314,12 @@ extension CalendarViewController: UITableViewDataSource {
 
 extension CalendarViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.textColor = UIColor.init(rgb: 0x39393A, a: 0.75)
-        header.textLabel?.font = UIFont(name: "Gill Sans", size: 20.0)
-        header.textLabel?.textAlignment = .left
-        header.textLabel?.text = "\(getTableHeaderContent()) 's events"
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+                       "sectionHeader") as! CalendarTableViewHeader
+        header.delegate = self
+        header.title.text = "\(getTableHeaderContent()) 's events"
+        return header
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -323,5 +335,20 @@ extension CalendarViewController: EventCellDelegate {
         let addItemVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddEventViewController") as! AddEventViewController
         addItemVC.event = events[pos]
         navigationController?.pushViewController(addItemVC, animated: true)
+    }
+}
+
+//MARK: - CalendarTableViewHeaderDelegate
+
+extension CalendarViewController: CalendarTableViewHeaderDelegate {
+    
+    func showSection() {
+        isShow = true
+        eventTableView.reloadData()
+    }
+    
+    func hideSection() {
+        isShow = false
+        eventTableView.reloadData()
     }
 }
